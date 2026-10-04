@@ -1,1507 +1,327 @@
 /* ==========================================
    FILE: ROTTEN NIGHTMARE
    RXU CORPORATION
-   RED / BLACK TERMINAL SYSTEM
 ========================================== */
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-body {
-    background: #050303;
-    color: #d0d0d0;
-    font-family: "Courier New", monospace;
-    overflow-x: hidden;
-}
 
 
 /* ==========================================
-   CRT
+   LANGUAGE SYSTEM
 ========================================== */
 
-.crt-overlay {
-    position: fixed;
-    inset: 0;
+let currentLanguage = "es";
 
-    pointer-events: none;
-
-    z-index: 9998;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 45%,
-            rgba(0,0,0,0.55) 100%
-        );
-}
+const langES = document.getElementById("langES");
+const langEN = document.getElementById("langEN");
 
 
-.scanlines {
-    position: fixed;
-    inset: 0;
+function setLanguage(language) {
 
-    pointer-events: none;
+    currentLanguage = language;
 
-    z-index: 9999;
+    document.documentElement.lang = language;
 
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(255,0,0,0.025) 0px,
-            rgba(255,0,0,0.025) 1px,
-            transparent 1px,
-            transparent 4px
+    const elements =
+        document.querySelectorAll(
+            "[data-es][data-en]"
         );
 
-    opacity: 0.4;
+
+    elements.forEach(element => {
+
+        const text =
+            element.getAttribute(
+                "data-" + language
+            );
+
+        if (text !== null) {
+
+            element.textContent = text;
+
+        }
+
+    });
+
+
+    if (language === "es") {
+
+        langES.classList.add("active");
+        langEN.classList.remove("active");
+
+        document.title =
+            "FILE: ROTTEN NIGHTMARE | RXU CORPORATION";
+
+    } else {
+
+        langEN.classList.add("active");
+        langES.classList.remove("active");
+
+        document.title =
+            "FILE: ROTTEN NIGHTMARE | RXU CORPORATION";
+
+    }
+
 }
 
 
+langES.addEventListener(
+    "click",
+    () => setLanguage("es")
+);
+
+
+langEN.addEventListener(
+    "click",
+    () => setLanguage("en")
+);
+
+
 /* ==========================================
-   HEADER
+   DATABASE INTEGRITY
 ========================================== */
 
-.header {
-    position: fixed;
+const integrity =
+    document.getElementById("integrity");
 
-    top: 0;
-    left: 0;
+let databaseIntegrity = 97.4;
 
-    width: 100%;
-    height: 78px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+function updateIntegrity() {
 
-    padding: 0 45px;
+    if (!integrity) return;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(10,0,0,0.98),
-            rgba(5,5,5,0.95)
+    const variation =
+        (Math.random() * 0.4) - 0.2;
+
+    databaseIntegrity += variation;
+
+    databaseIntegrity =
+        Math.max(
+            94.0,
+            Math.min(
+                99.0,
+                databaseIntegrity
+            )
         );
 
-    border-bottom: 1px solid #3a0b0b;
 
-    box-shadow:
-        0 5px 30px rgba(120,0,0,0.08);
+    integrity.textContent =
+        databaseIntegrity.toFixed(1) + "%";
 
-    backdrop-filter: blur(12px);
-
-    z-index: 1000;
 }
 
 
-/* ==========================================
-   BRAND
-========================================== */
-
-.brand {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-}
-
-
-.rxu-logo {
-    width: 43px;
-    height: 43px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #8d1111;
-
-    color: #e00000;
-
-    font-weight: bold;
-    font-size: 15px;
-
-    letter-spacing: 2px;
-
-    box-shadow:
-        inset 0 0 15px rgba(150,0,0,0.15),
-        0 0 10px rgba(130,0,0,0.15);
-}
-
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.brand-text span {
-    color: #ddd;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    letter-spacing: 3px;
-}
-
-
-.brand-text small {
-    color: #555;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-}
+setInterval(
+    updateIntegrity,
+    4000
+);
 
 
 /* ==========================================
-   NAVIGATION
+   RANDOM GLITCH
 ========================================== */
 
-.navigation {
-    display: flex;
-    gap: 30px;
+const entityCards =
+    document.querySelectorAll(
+        ".entity-card"
+    );
+
+
+function randomGlitch() {
+
+    if (entityCards.length === 0)
+        return;
+
+
+    const card =
+        entityCards[
+            Math.floor(
+                Math.random() *
+                entityCards.length
+            )
+        ];
+
+
+    card.style.transform =
+        "translateX(-2px)";
+
+
+    setTimeout(() => {
+
+        card.style.transform =
+            "translateX(2px)";
+
+    }, 60);
+
+
+    setTimeout(() => {
+
+        card.style.transform =
+            "";
+
+    }, 120);
+
 }
 
 
-.navigation a {
-    position: relative;
-
-    color: #666;
-
-    text-decoration: none;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    transition: 0.25s;
-}
-
-
-.navigation a:hover {
-    color: #e00000;
-
-    text-shadow:
-        0 0 10px rgba(220,0,0,0.5);
-}
-
-
-.navigation a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -8px;
-
-    width: 0;
-    height: 1px;
-
-    background: #d00000;
-
-    transition: 0.25s;
-}
-
-
-.navigation a:hover::after {
-    width: 100%;
-}
+setInterval(
+    randomGlitch,
+    7000
+);
 
 
 /* ==========================================
-   HEADER RIGHT
+   DOWNLOAD LINKS
 ========================================== */
 
-.header-right {
-    display: flex;
-    align-items: center;
-
-    gap: 25px;
-}
+const downloadLinks =
+    document.querySelectorAll(
+        ".download-link"
+    );
 
 
-.language {
-    color: #444;
+downloadLinks.forEach(link => {
 
-    font-size: 10px;
-}
+    link.addEventListener(
+        "click",
+        function(event) {
 
+            if (
+                this.getAttribute("href") === "#"
+            ) {
 
-.lang {
-    border: none;
-
-    background: none;
-
-    color: #555;
-
-    font-family: inherit;
-
-    cursor: pointer;
-
-    font-size: 10px;
-}
+                event.preventDefault();
 
 
-.lang.active,
-.lang:hover {
-    color: #e00000;
-}
+                if (
+                    currentLanguage === "es"
+                ) {
 
+                    alert(
+                        "El enlace de descarga todavía no está disponible."
+                    );
 
-.system-status {
-    color: #555;
+                } else {
 
-    font-size: 9px;
+                    alert(
+                        "The download link is not available yet."
+                    );
 
-    letter-spacing: 1px;
-}
+                }
 
+            }
 
-.status-dot {
-    display: inline-block;
+        }
+    );
 
-    width: 6px;
-    height: 6px;
-
-    margin-right: 5px;
-
-    border-radius: 50%;
-
-    background: #c00000;
-
-    box-shadow:
-        0 0 10px #c00000;
-
-    animation: pulse 2s infinite;
-}
+});
 
 
 /* ==========================================
-   HERO
+   SCROLL REVEAL
 ========================================== */
 
-.hero {
-    position: relative;
-
-    min-height: 100vh;
-
-    display: grid;
-
-    grid-template-columns:
-        1.15fr 0.85fr;
-
-    gap: 80px;
-
-    align-items: center;
-
-    padding:
-        140px
-        9%
-        90px;
-
-    overflow: hidden;
-}
+const sections =
+    document.querySelectorAll(
+        ".section"
+    );
 
 
-.hero-background {
-    position: absolute;
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-    inset: 0;
+            entries.forEach(entry => {
 
-    background:
+                if (
+                    entry.isIntersecting
+                ) {
 
-        radial-gradient(
-            circle at 15% 50%,
-            rgba(130,0,0,0.18),
-            transparent 38%
-        ),
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(100,0,0,0.08),
-            transparent 35%
-        ),
+                }
 
-        linear-gradient(
-            135deg,
-            #090000,
-            #050505 55%,
-            #0b0000
-        );
+            });
 
-    z-index: -2;
-}
+        },
+        {
+            threshold: 0.08
+        }
+    );
 
 
-.hero::after {
-    content: "";
+sections.forEach(section => {
 
-    position: absolute;
+    observer.observe(section);
 
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 200px;
-
-    background:
-        linear-gradient(
-            transparent,
-            #050303
-        );
-
-    pointer-events: none;
-}
+});
 
 
 /* ==========================================
-   HERO CONTENT
+   TERMINAL CONSOLE
 ========================================== */
 
-.classification {
-    color: #6a3030;
+console.log(
+    "%cRXU CORPORATION",
+    "color:#b00000;font-size:24px;font-weight:bold;"
+);
 
-    font-size: 10px;
+console.log(
+    "%cFILE: ROTTEN NIGHTMARE",
+    "color:#777;font-size:14px;"
+);
 
-    letter-spacing: 3px;
+console.log(
+    "RXU Containment Operations System initialized."
+);
 
-    margin-bottom: 30px;
-}
+console.log(
+    "WARNING: Unauthorized access is prohibited."
+);
 
-
-.hero h1 {
-    max-width: 900px;
-
-    color: #ddd;
-
-    font-size:
-        clamp(
-            50px,
-            8vw,
-            105px
-        );
-
-    line-height: 0.86;
-
-    letter-spacing: -5px;
-
-    text-shadow:
-        0 0 30px rgba(150,0,0,0.08);
-}
-
-
-.hero h1 span {
-    color: #b40000;
-
-    text-shadow:
-        0 0 20px rgba(180,0,0,0.2);
-}
-
-
-.title-line {
-    width: 220px;
-    height: 2px;
-
-    margin: 35px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #c00000,
-            transparent
-        );
-}
-
-
-.hero-subtitle {
-    color: #aaa;
-
-    font-size: 16px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 18px;
-}
-
-
-.hero-description {
-    max-width: 600px;
-
-    color: #666;
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-
-.hero-buttons {
-    display: flex;
-
-    gap: 15px;
-
-    margin-top: 35px;
-}
+console.log(
+    "Convergences detected: 12"
+);
 
 
 /* ==========================================
-   BUTTONS
+   RANDOM SYSTEM MESSAGE
 ========================================== */
 
-.button {
-    display: inline-block;
+const systemMessages = [
 
-    padding: 14px 25px;
+    "UNKNOWN SIGNAL DETECTED",
+    "CONTAINMENT FLUCTUATION",
+    "DATABASE DESYNCHRONIZATION",
+    "UNVERIFIED ENTITY DETECTED",
+    "REMOTE RESPONSE: NONE",
+    "CONTAINMENT PARAMETERS STABLE",
+    "CAMERA NETWORK ONLINE",
+    "OPERATOR CONNECTION STABLE"
 
-    border: 1px solid #422020;
+];
 
-    background:
-        rgba(30,0,0,0.25);
 
-    color: #999;
+function systemMessage() {
 
-    font-family: inherit;
+    const message =
+        systemMessages[
+            Math.floor(
+                Math.random() *
+                systemMessages.length
+            )
+        ];
 
-    font-size: 10px;
 
-    letter-spacing: 2px;
+    console.log(
+        "[RXU-COS] > " + message
+    );
 
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-
-.button:hover {
-    border-color: #c00000;
-
-    color: #eee;
-
-    background:
-        rgba(130,0,0,0.15);
-
-    box-shadow:
-        0 0 20px rgba(160,0,0,0.15);
-}
-
-
-.button-red {
-    border-color: #a00000;
-
-    background:
-        linear-gradient(
-            135deg,
-            #760000,
-            #250000
-        );
-
-    color: #eee;
-}
-
-
-.button-red:hover {
-    background:
-        linear-gradient(
-            135deg,
-            #a00000,
-            #350000
-        );
-}
-
-
-/* ==========================================
-   WARNING
-========================================== */
-
-.warning-strip {
-    display: inline-flex;
-
-    gap: 10px;
-
-    margin-top: 35px;
-    padding: 10px 15px;
-
-    border-left: 2px solid #a00000;
-
-    background:
-        rgba(90,0,0,0.08);
-
-    color: #653030;
-
-    font-size: 9px;
-
-    letter-spacing: 1px;
-}
-
-
-/* ==========================================
-   TERMINAL
-========================================== */
-
-.terminal-window {
-    position: relative;
-
-    border: 1px solid #3a1111;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(18,0,0,0.96),
-            rgba(5,5,5,0.98)
-        );
-
-    box-shadow:
-        0 0 60px rgba(100,0,0,0.08),
-        inset 0 0 40px rgba(100,0,0,0.03);
-}
-
-
-.terminal-top {
-    height: 42px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 15px;
-
-    border-bottom: 1px solid #351010;
-
-    color: #5e5e5e;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-.terminal-top div {
-    display: flex;
-
-    gap: 5px;
-}
-
-
-.terminal-top i {
-    display: block;
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: #450000;
-}
-
-
-.terminal-body {
-    min-height: 390px;
-
-    padding: 28px;
-
-    color: #666;
-
-    font-size: 11px;
-
-    line-height: 2;
-}
-
-
-.terminal-line span {
-    color: #aaa;
-}
-
-
-.green {
-    color: #777 !important;
-}
-
-
-.red-text {
-    color: #c00000 !important;
-
-    text-shadow:
-        0 0 8px rgba(180,0,0,0.35);
-}
-
-
-.terminal-cursor {
-    color: #a00000;
-
-    animation: blink 1s infinite;
-}
-
-
-/* ==========================================
-   SECTIONS
-========================================== */
-
-.section {
-    position: relative;
-
-    padding: 125px 9%;
-
-    border-top: 1px solid #1d0808;
-}
-
-
-.dark-section {
-    background:
-        linear-gradient(
-            180deg,
-            #070000,
-            #030303
-        );
-}
-
-
-.section-heading {
-    display: flex;
-
-    align-items: baseline;
-
-    gap: 18px;
-
-    margin-bottom: 60px;
-}
-
-
-.section-heading > span {
-    color: #6e1717;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-
-.section-heading h2 {
-    color: #ccc;
-
-    font-size: 28px;
-
-    letter-spacing: 3px;
-}
-
-
-.section-description {
-    color: #666;
-
-    margin-bottom: 45px;
-
-    font-size: 13px;
-}
-
-
-/* ==========================================
-   GAME
-========================================== */
-
-.game-layout {
-    display: grid;
-
-    grid-template-columns:
-        1fr 0.75fr;
-
-    gap: 90px;
-}
-
-
-.red-label {
-    margin-bottom: 20px;
-
-    color: #a00000;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.game-description h3 {
-    margin-bottom: 25px;
-
-    color: #ccc;
-
-    font-size: 34px;
-
-    letter-spacing: 2px;
-}
-
-
-.game-description p {
-    max-width: 700px;
-
-    margin-bottom: 20px;
-
-    color: #777;
-
-    line-height: 1.9;
-}
-
-
-.game-description strong {
-    color: #b00000;
-}
-
-
-.quote-box {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-    margin-top: 45px;
-
-    padding: 25px;
-
-    border-left: 2px solid #a00000;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(120,0,0,0.1),
-            transparent
-        );
-}
-
-
-.quote-box span {
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.quote-box strong {
-    color: #aaa;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-}
-
-
-/* ==========================================
-   INFORMATION PANEL
-========================================== */
-
-.info-panel {
-    height: fit-content;
-
-    border: 1px solid #301010;
-
-    background: #080303;
-}
-
-
-.panel-title {
-    padding: 16px;
-
-    border-bottom: 1px solid #301010;
-
-    color: #733333;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-.info-row {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 17px;
-
-    border-bottom: 1px solid #190909;
-
-    font-size: 9px;
-}
-
-
-.info-row span {
-    color: #555;
-}
-
-
-.info-row strong {
-    color: #888;
-
-    font-weight: normal;
-}
-
-
-/* ==========================================
-   ARCHIVE
-========================================== */
-
-.archive-layout {
-    display: grid;
-
-    grid-template-columns:
-        1fr 0.65fr;
-
-    gap: 35px;
-}
-
-
-.archive-document,
-.archive-terminal {
-    border: 1px solid #301010;
-
-    background: #080303;
-}
-
-
-.document-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 15px;
-
-    border-bottom: 1px solid #301010;
-
-    color: #633333;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-.document-content {
-    padding: 35px;
-}
-
-
-.document-content h3 {
-    margin-bottom: 25px;
-
-    color: #bbb;
-
-    font-size: 18px;
-
-    letter-spacing: 2px;
-}
-
-
-.document-content p {
-    margin-bottom: 20px;
-
-    color: #666;
-
-    line-height: 1.9;
-}
-
-
-.classified-text {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-    margin-top: 30px;
-
-    color: #300000;
-
-    font-size: 18px;
-}
-
-
-.database-list {
-    padding: 25px;
-
-    color: #555;
-
-    font-size: 10px;
-
-    line-height: 2.5;
-}
-
-
-.database-list div {
-    border-bottom: 1px solid #150606;
-}
-
-
-/* ==========================================
-   ENTITY DATABASE
-========================================== */
-
-.entity-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-
-.entity-card {
-    position: relative;
-
-    overflow: hidden;
-
-    border: 1px solid #291010;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0d0505,
-            #050505
-        );
-
-    transition:
-        transform 0.3s,
-        border-color 0.3s,
-        box-shadow 0.3s;
-}
-
-
-.entity-card:hover {
-    transform: translateY(-5px);
-
-    border-color: #700000;
-
-    box-shadow:
-        0 15px 35px rgba(100,0,0,0.12);
-}
-
-
-.entity-top {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 13px 15px;
-
-    color: #4e4e4e;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-}
-
-
-.danger {
-    color: #9b2020;
-}
-
-
-.entity-image {
-    height: 145px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-top: 1px solid #190707;
-    border-bottom: 1px solid #190707;
-
-    color: #4c1111;
-
-    font-size: 22px;
-
-    letter-spacing: 3px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(120,0,0,0.12),
-            transparent 65%
-        );
-
-    text-shadow:
-        0 0 15px rgba(150,0,0,0.2);
-
-    user-select: none;
-}
-
-
-.entity-card h3 {
-    padding: 20px 18px 8px;
-
-    color: #aaa;
-
-    font-size: 15px;
-
-    letter-spacing: 2px;
-}
-
-
-.entity-card p {
-    padding: 0 18px 20px;
-
-    color: #555;
-
-    font-size: 9px;
-}
-
-
-.entity-status {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 13px 18px;
-
-    border-top: 1px solid #1b0808;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-
-.entity-status span {
-    color: #444;
-}
-
-
-.entity-status strong {
-    color: #a00000;
-
-    font-weight: normal;
-}
-
-
-/* ==========================================
-   DOWNLOAD
-========================================== */
-
-.download-section {
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(120,0,0,0.12),
-            transparent 45%
-        );
-}
-
-
-.download-box {
-    display: grid;
-
-    grid-template-columns:
-        180px 1fr;
-
-    align-items: center;
-
-    gap: 50px;
-
-    padding: 50px;
-
-    border: 1px solid #541010;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(90,0,0,0.13),
-            rgba(5,5,5,0.9)
-        );
-
-    box-shadow:
-        0 0 60px rgba(120,0,0,0.05);
-}
-
-
-.download-logo {
-    height: 180px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 2px solid #8e0000;
-
-    color: #b00000;
-
-    font-size: 42px;
-
-    font-weight: bold;
-
-    letter-spacing: 5px;
-
-    box-shadow:
-        inset 0 0 30px rgba(150,0,0,0.12),
-        0 0 30px rgba(120,0,0,0.08);
-}
-
-
-.download-content h3 {
-    margin-bottom: 15px;
-
-    color: #ccc;
-
-    font-size: 25px;
-
-    letter-spacing: 2px;
-}
-
-
-.download-content p {
-    max-width: 600px;
-
-    margin-bottom: 25px;
-
-    color: #666;
-
-    line-height: 1.8;
-}
-
-
-.download-buttons {
-    display: flex;
-
-    gap: 12px;
-
-    flex-wrap: wrap;
-}
-
-
-.download-content small {
-    display: block;
-
-    margin-top: 20px;
-
-    color: #444;
-
-    font-size: 9px;
-}
-
-
-/* ==========================================
-   RXU
-========================================== */
-
-.rxu-layout {
-    display: grid;
-
-    grid-template-columns:
-        1fr 0.7fr;
-
-    gap: 80px;
-}
-
-
-.rxu-layout h3 {
-    margin-bottom: 25px;
-
-    color: #ccc;
-
-    font-size: 30px;
-}
-
-
-.rxu-layout p {
-    max-width: 650px;
-
-    color: #666;
-
-    line-height: 1.9;
-}
-
-
-.corporate-terminal {
-    padding: 30px;
-
-    border: 1px solid #351010;
-
-    background: #070202;
-
-    color: #5c5c5c;
-
-    font-size: 10px;
-
-    line-height: 2.3;
-
-    letter-spacing: 1px;
-}
-
-
-.corporate-terminal div {
-    border-bottom: 1px solid #180707;
-}
-
-
-/* ==========================================
-   FINAL
-========================================== */
-
-.final-section {
-    min-height: 70vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    border-top: 1px solid #260707;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(110,0,0,0.12),
-            transparent 55%
-        );
-}
-
-
-.final-noise {
-    margin-bottom: 30px;
-
-    color: #5d1717;
-
-    font-size: 9px;
-
-    letter-spacing: 6px;
-
-    animation: glitch 3s infinite;
-}
-
-
-.final-section h2 {
-    color: #aaa;
-
-    font-size:
-        clamp(
-            25px,
-            5vw,
-            58px
-        );
-
-    line-height: 1.1;
-
-    letter-spacing: 3px;
-}
-
-
-.final-section h2 span {
-    color: #a00000;
-}
-
-
-.final-line {
-    width: 160px;
-    height: 1px;
-
-    margin: 30px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #a00000,
-            transparent
-        );
-}
-
-
-.final-section p {
-    color: #444;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-.footer {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 30px 9%;
-
-    border-top: 1px solid #210707;
-
-    background: #030303;
-
-    color: #3e3e3e;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-
-/* ==========================================
-   ANIMATIONS
-========================================== */
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 0.35;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-}
-
-
-@keyframes blink {
-
-    0%,
-    45% {
-        opacity: 1;
-    }
-
-    46%,
-    100% {
-        opacity: 0;
-    }
-
-}
-
-
-@keyframes glitch {
-
-    0%,
-    90%,
-    100% {
-        transform: translateX(0);
-    }
-
-    92% {
-        transform: translateX(-4px);
-    }
-
-    94% {
-        transform: translateX(4px);
-    }
-
-}
-
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media (max-width: 1100px) {
-
-    .navigation {
-        gap: 15px;
-    }
-
-    .entity-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 850px) {
-
-    .header {
-        padding: 0 20px;
-    }
-
-    .navigation {
-        display: none;
-    }
-
-    .system-status {
-        display: none;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-
-        padding:
-            130px 7%
-            80px;
-    }
-
-    .game-layout,
-    .archive-layout,
-    .rxu-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .download-box {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-    }
-
-    .download-buttons {
-        justify-content: center;
-    }
-
 }
-
-
-@media (max-width: 600px) {
-
-    .section {
-        padding: 90px 7%;
-    }
-
-    .entity-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .hero h1 {
-        font-size: 48px;
 
-        letter-spacing: -3px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .button {
-        text-align: center;
-    }
-
-    .download-box {
-        padding: 30px 20px;
-    }
-
-    .footer {
-        flex-direction: column;
-
-        gap: 12px;
-
-        text-align: center;
-    }
-
-}
+setInterval(
+    systemMessage,
+    6000
+);
