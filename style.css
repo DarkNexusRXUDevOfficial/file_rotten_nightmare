@@ -1,0 +1,867 @@
+/* =========================================
+   FILE: ROTTEN NIGHTMARE
+   RXU CORPORATION WEBSITE
+   ========================================= */
+
+
+/* ---------- GENERAL ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #d5d5d5;
+    font-family: "Courier New", monospace;
+    overflow-x: hidden;
+}
+
+
+/* ---------- SCANLINES ---------- */
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    background: rgba(5,5,5,0.92);
+    border-bottom: 1px solid #252525;
+
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-rxu {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 4px;
+
+    color: #bcbcbc;
+}
+
+.logo-sub {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #555;
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.navigation a {
+    position: relative;
+
+    color: #777;
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+.navigation a:hover {
+    color: #fff;
+}
+
+.navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: #aaa;
+
+    transition: 0.25s;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- SYSTEM STATUS ---------- */
+
+.system-status {
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    color: #666;
+}
+
+.status-light {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 6px;
+
+    border-radius: 50%;
+
+    background: #777;
+
+    box-shadow: 0 0 7px #777;
+
+    animation: pulse 2s infinite;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+
+    align-items: center;
+
+    padding: 130px 9% 80px;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255,255,255,0.025),
+            transparent 40%
+        );
+}
+
+
+/* ---------- HERO CONTENT ---------- */
+
+.classification {
+    color: #555;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 110px);
+
+    line-height: 0.88;
+
+    letter-spacing: -4px;
+
+    color: #e5e5e5;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,0.08);
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.divider {
+    width: 180px;
+    height: 1px;
+
+    margin: 35px 0;
+
+    background: #555;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    color: #999;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.warning {
+    margin-top: 25px;
+
+    color: #777;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    border: 1px solid #444;
+
+    color: #999;
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.button:hover {
+    border-color: #aaa;
+    color: #fff;
+
+    background: rgba(255,255,255,0.04);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.05);
+}
+
+.button.primary {
+    border-color: #777;
+    color: #ddd;
+}
+
+
+/* ---------- TERMINAL ---------- */
+
+.hero-terminal {
+    border: 1px solid #303030;
+
+    background: #080808;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.8);
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px 15px;
+
+    border-bottom: 1px solid #252525;
+
+    color: #666;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.terminal-header span {
+    color: #777;
+}
+
+.terminal-content {
+    padding: 25px;
+
+    min-height: 350px;
+
+    color: #777;
+
+    font-size: 12px;
+    line-height: 2;
+}
+
+.terminal-content span {
+    color: #aaa;
+}
+
+.terminal-content .green {
+    color: #999;
+}
+
+.terminal-content .red {
+    color: #777;
+}
+
+.terminal-warning {
+    color: #999 !important;
+}
+
+.cursor {
+    display: inline-block;
+
+    animation: blink 1s infinite;
+}
+
+
+/* ---------- SECTIONS ---------- */
+
+.section {
+    padding: 120px 9%;
+
+    border-top: 1px solid #171717;
+}
+
+.section-title {
+    margin-bottom: 60px;
+
+    color: #ddd;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.section-title span {
+    margin-right: 15px;
+
+    color: #444;
+
+    font-size: 11px;
+}
+
+
+/* ---------- GAME ---------- */
+
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 80px;
+}
+
+.game-text h2 {
+    margin-bottom: 25px;
+
+    color: #ccc;
+
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.game-text p {
+    max-width: 700px;
+
+    margin-bottom: 20px;
+
+    color: #777;
+
+    line-height: 1.8;
+}
+
+.game-text strong {
+    color: #bbb;
+}
+
+.game-text .highlight {
+    margin-top: 30px;
+
+    color: #aaa;
+
+    font-size: 18px;
+}
+
+.quote {
+    margin-top: 50px;
+    padding-left: 20px;
+
+    border-left: 2px solid #555;
+
+    color: #999;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+/* ---------- GAME CARD ---------- */
+
+.game-card {
+    height: fit-content;
+
+    border: 1px solid #292929;
+
+    background: #080808;
+}
+
+.card-header {
+    padding: 15px;
+
+    border-bottom: 1px solid #292929;
+
+    color: #777;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #171717;
+
+    font-size: 10px;
+}
+
+.info-row span:first-child {
+    color: #555;
+}
+
+.info-row span:last-child {
+    color: #888;
+}
+
+
+/* ---------- ARCHIVE ---------- */
+
+.archive-container {
+    max-width: 850px;
+
+    padding: 40px;
+
+    border: 1px solid #282828;
+
+    background: #080808;
+}
+
+.archive-container p {
+    margin-bottom: 15px;
+
+    color: #666;
+
+    line-height: 1.8;
+}
+
+.archive-warning {
+    margin-bottom: 25px;
+
+    color: #999;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.redacted-box {
+    margin-top: 40px;
+    padding: 30px;
+
+    border: 1px solid #202020;
+
+    text-align: center;
+}
+
+.redacted-box > span {
+    color: #666;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.redacted-lines {
+    margin: 25px 0;
+
+    color: #292929;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    user-select: none;
+}
+
+.archive-message {
+    margin-top: 20px;
+
+    color: #888 !important;
+
+    min-height: 20px;
+}
+
+
+/* ---------- ENTITIES ---------- */
+
+.section-intro {
+    margin-bottom: 50px;
+
+    color: #666;
+}
+
+.entity-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.entity-card {
+    padding: 30px;
+
+    border: 1px solid #252525;
+
+    background: #080808;
+
+    transition: 0.25s;
+}
+
+.entity-card:hover {
+    border-color: #555;
+
+    transform: translateY(-3px);
+}
+
+.entity-number {
+    color: #444;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.entity-card h3 {
+    margin: 15px 0;
+
+    color: #ccc;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+}
+
+.entity-card p {
+    color: #555;
+
+    font-size: 10px;
+}
+
+.entity-bar {
+    width: 100%;
+    height: 2px;
+
+    margin-top: 20px;
+
+    background: #202020;
+}
+
+.entity-bar div {
+    width: 70%;
+    height: 100%;
+
+    background: #777;
+
+    animation: entityPulse 3s infinite;
+}
+
+
+/* ---------- ABOUT ---------- */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 0.7fr;
+
+    gap: 80px;
+}
+
+.about-grid h2 {
+    margin-bottom: 25px;
+
+    color: #ccc;
+
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.about-grid p {
+    max-width: 700px;
+
+    margin-bottom: 20px;
+
+    color: #777;
+
+    line-height: 1.8;
+}
+
+.corporate-box {
+    padding: 30px;
+
+    border: 1px solid #282828;
+
+    background: #080808;
+
+    color: #555;
+
+    font-size: 11px;
+
+    line-height: 2.5;
+
+    letter-spacing: 2px;
+}
+
+
+/* ---------- FINAL SECTION ---------- */
+
+.final-section {
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-top: 1px solid #171717;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.025),
+            transparent 55%
+        );
+}
+
+.final-glitch {
+    margin-bottom: 30px;
+
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    animation: glitch 3s infinite;
+}
+
+.final-section h2 {
+    color: #aaa;
+
+    font-size: clamp(25px, 5vw, 60px);
+
+    line-height: 1.1;
+
+    letter-spacing: 3px;
+}
+
+.final-section p {
+    margin-top: 30px;
+
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 30px 9%;
+
+    border-top: 1px solid #202020;
+
+    color: #444;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes blink {
+
+    0%, 45% {
+        opacity: 1;
+    }
+
+    46%, 100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes entityPulse {
+
+    0%, 100% {
+        width: 65%;
+    }
+
+    50% {
+        width: 75%;
+    }
+
+}
+
+@keyframes glitch {
+
+    0%, 90%, 100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    92% {
+        transform: translateX(-3px);
+        opacity: 0.7;
+    }
+
+    94% {
+        transform: translateX(3px);
+        opacity: 0.8;
+    }
+
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding: 120px 7% 70px;
+    }
+
+    .hero-terminal {
+        max-width: 700px;
+    }
+
+    .game-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .entity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .section {
+        padding: 80px 7%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+    .archive-container {
+        padding: 25px;
+    }
+
+}

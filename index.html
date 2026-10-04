@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FILE: ROTTEN NIGHTMARE | RXU Corporation</title>
+
+    <meta name="description" content="FILE: ROTTEN NIGHTMARE — Official RXU Corporation containment archive.">
+    <meta name="theme-color" content="#050505">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- EFECTO DE ESCANEO -->
+    <div class="scanlines"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <span class="logo-rxu">RXU</span>
+            <span class="logo-sub">CORPORATION</span>
+        </div>
+
+        <nav class="navigation">
+            <a href="#home">HOME</a>
+            <a href="#game">GAME</a>
+            <a href="#archive">ARCHIVE</a>
+            <a href="#entities">ENTITIES</a>
+            <a href="#about">ABOUT</a>
+        </nav>
+
+        <div class="system-status">
+            <span class="status-light"></span>
+            SYSTEM ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <div class="classification">
+                    RXU CORPORATION // CONTAINMENT OPERATIONS
+                </div>
+
+                <h1>
+                    FILE:<br>
+                    <span>ROTTEN NIGHTMARE</span>
+                </h1>
+
+                <div class="divider"></div>
+
+                <p class="hero-description">
+                    A containment facility built to keep nightmares
+                    where they belong.
+                </p>
+
+                <p class="warning">
+                    ⚠ CLASSIFIED CONTAINMENT FILE
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#game" class="button primary">
+                        ACCESS FILE
+                    </a>
+
+                    <a href="#archive" class="button">
+                        DATABASE
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-terminal">
+
+                <div class="terminal-header">
+                    RXU-COS // TERMINAL
+                    <span>● REC</span>
+                </div>
+
+                <div class="terminal-content">
+
+                    <p>> INITIALIZING CONTAINMENT SYSTEM...</p>
+                    <p>> OPERATOR: <span>IRIS MORGAN</span></p>
+                    <p>> CLEARANCE LEVEL: <span>0</span></p>
+                    <p>> FACILITY STATUS: <span class="green">ONLINE</span></p>
+                    <p>> CONTAINMENT: <span class="green">STABLE</span></p>
+                    <p>> DATABASE INTEGRITY: <span>97.4%</span></p>
+                    <p>> ACTIVE CONVERGENCES: <span id="entity-count">--</span></p>
+                    <p>> UNKNOWN SIGNALS: <span class="red">DETECTED</span></p>
+
+                    <br>
+
+                    <p class="terminal-warning">
+                        > DO NOT LEAVE THE STATION.
+                    </p>
+
+                    <p class="cursor">█</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME -->
+        <section id="game" class="section game-section">
+
+            <div class="section-title">
+                <span>01 //</span>
+                THE GAME
+            </div>
+
+            <div class="game-grid">
+
+                <div class="game-text">
+
+                    <h2>WELCOME TO RXU.</h2>
+
+                    <p>
+                        You are <strong>Iris Morgan</strong>, an employee of
+                        RXU Corporation.
+                    </p>
+
+                    <p>
+                        You accepted the position because of the pay.
+                        What you were not told was what you would actually
+                        be monitoring.
+                    </p>
+
+                    <p>
+                        Behind the cameras are entities that should not exist.
+                        Things born from legends, fear, stories and forgotten
+                        nightmares.
+                    </p>
+
+                    <p class="highlight">
+                        Your task is simple:
+                        survive the shift.
+                    </p>
+
+                    <div class="quote">
+                        "WE WILL MAKE TERROR GRAND AS IT ONCE WAS."
+                    </div>
+
+                </div>
+
+
+                <div class="game-card">
+
+                    <div class="card-header">
+                        FILE INFORMATION
+                    </div>
+
+                    <div class="info-row">
+                        <span>PROJECT</span>
+                        <span>F:RN</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>GENRE</span>
+                        <span>ASYMMETRIC HORROR</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>PLATFORM</span>
+                        <span>SCRATCH</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>DEVELOPER</span>
+                        <span>RXU DEVELOPMENT</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>STATUS</span>
+                        <span class="green">IN DEVELOPMENT</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARCHIVE -->
+        <section id="archive" class="section archive-section">
+
+            <div class="section-title">
+                <span>02 //</span>
+                ARCHIVE
+            </div>
+
+            <div class="archive-container">
+
+                <div class="archive-warning">
+                    ⚠ ACCESS RESTRICTED
+                </div>
+
+                <p>
+                    The following information has been classified by
+                    RXU Corporation.
+                </p>
+
+                <p>
+                    Unauthorized access, reproduction or distribution of
+                    containment records is strictly prohibited.
+                </p>
+
+                <div class="redacted-box">
+
+                    <span>CONVERGENCE DATABASE</span>
+
+                    <div class="redacted-lines">
+                        <div>████████████████████</div>
+                        <div>██████████████████████████</div>
+                        <div>████████████████</div>
+                        <div>████████████████████████</div>
+                    </div>
+
+                    <button id="unlockArchive" class="button">
+                        ATTEMPT ACCESS
+                    </button>
+
+                    <p id="archiveMessage" class="archive-message"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENTITIES -->
+        <section id="entities" class="section entities-section">
+
+            <div class="section-title">
+                <span>03 //</span>
+                CONVERGENCES
+            </div>
+
+            <p class="section-intro">
+                Entities currently associated with RXU containment records.
+            </p>
+
+
+            <div class="entity-grid">
+
+                <article class="entity-card">
+
+                    <div class="entity-number">RXU-001</div>
+
+                    <h3>JASON</h3>
+
+                    <p>
+                        CONTAINMENT STATUS:
+                        <span class="red">ACTIVE</span>
+                    </p>
+
+                    <div class="entity-bar">
+                        <div></div>
+                    </div>
+
+                </article>
+
+
+                <article class="entity-card">
+
+                    <div class="entity-number">RXU-002</div>
+
+                    <h3>SADAKO</h3>
+
+                    <p>
+                        CONTAINMENT STATUS:
+                        <span class="red">ACTIVE</span>
+                    </p>
+
+                    <div class="entity-bar">
+                        <div></div>
+                    </div>
+
+                </article>
+
+
+                <article class="entity-card">
+
+                    <div class="entity-number">RXU-003</div>
+
+                    <h3>SLENDERMAN</h3>
+
+                    <p>
+                        CONTAINMENT STATUS:
+                        <span class="red">ACTIVE</span>
+                    </p>
+
+                    <div class="entity-bar">
+                        <div></div>
+                    </div>
+
+                </article>
+
+
+                <article class="entity-card">
+
+                    <div class="entity-number">RXU-004</div>
+
+                    <h3>HEROBRINE</h3>
+
+                    <p>
+                        CONTAINMENT STATUS:
+                        <span class="red">ACTIVE</span>
+                    </p>
+
+                    <div class="entity-bar">
+                        <div></div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section about-section">
+
+            <div class="section-title">
+                <span>04 //</span>
+                RXU CORPORATION
+            </div>
+
+            <div class="about-grid">
+
+                <div>
+
+                    <h2>WE CONTROL THE UNKNOWN.</h2>
+
+                    <p>
+                        RXU Corporation specializes in the containment,
+                        observation and classification of anomalous entities
+                        originating from multiple realities.
+                    </p>
+
+                    <p>
+                        Our methods are proprietary.
+                        Our facilities are classified.
+                        Our failures are documented.
+                    </p>
+
+                </div>
+
+                <div class="corporate-box">
+
+                    <div>RXU CORPORATION</div>
+                    <div>CONTAINMENT OPERATIONS</div>
+                    <div>EST. UNKNOWN</div>
+                    <div>STATUS: OPERATIONAL</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL MESSAGE -->
+        <section class="final-section">
+
+            <div class="final-glitch">
+                SIGNAL LOST
+            </div>
+
+            <h2>
+                WE WILL MAKE TERROR<br>
+                GRAND AS IT ONCE WAS.
+            </h2>
+
+            <p>
+                RXU CORPORATION // END OF TRANSMISSION
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div>
+            FILE: ROTTEN NIGHTMARE
+        </div>
+
+        <div>
+            RXU CORPORATION © 2026
+        </div>
+
+        <div>
+            ALL RECORDS CLASSIFIED
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
