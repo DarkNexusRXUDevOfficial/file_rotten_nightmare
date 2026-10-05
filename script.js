@@ -1,224 +1,386 @@
-/* =========================================
+/* ==========================================
    FILE: ROTTEN NIGHTMARE
-   RXU CORPORATION WEBSITE
-   ========================================= */
+   RXU CORPORATION
+========================================== */
 
 
-/* ---------- ENTITY COUNTER ---------- */
+/* ==========================================
+   LANGUAGE SYSTEM
+========================================== */
 
-const entityCount = document.getElementById("entity-count");
-
-let entities = 11;
-
-function updateEntityCount() {
-
-    if (!entityCount) return;
-
-    entityCount.textContent = entities;
-
-}
-
-updateEntityCount();
+let currentLanguage = "es";
 
 
-/* ---------- TERMINAL RANDOM SIGNAL ---------- */
+const langES =
+    document.getElementById("langES");
 
-const terminalWarnings = [
-    "UNKNOWN SIGNAL DETECTED",
-    "CONTAINMENT FLUCTUATION",
-    "UNVERIFIED ENTITY DETECTED",
-    "DATABASE DESYNCHRONIZATION",
-    "REMOTE RESPONSE: NONE",
-    "CONTAINMENT PARAMETERS UNSTABLE"
-];
-
-const terminalWarningElement =
-    document.querySelector(".terminal-warning");
+const langEN =
+    document.getElementById("langEN");
 
 
-function randomWarning() {
+function setLanguage(language) {
 
-    if (!terminalWarningElement) return;
+    currentLanguage = language;
 
-    const randomIndex =
-        Math.floor(Math.random() * terminalWarnings.length);
-
-    terminalWarningElement.textContent =
-        "> " + terminalWarnings[randomIndex];
-
-}
+    document.documentElement.lang =
+        language;
 
 
-setInterval(randomWarning, 7000);
+    const elements =
+        document.querySelectorAll(
+            "[data-es][data-en]"
+        );
 
 
-/* ---------- ARCHIVE ACCESS ---------- */
+    elements.forEach(element => {
 
-const unlockArchive =
-    document.getElementById("unlockArchive");
+        const translation =
+            element.getAttribute(
+                "data-" + language
+            );
 
-const archiveMessage =
-    document.getElementById("archiveMessage");
+
+        if (!translation)
+            return;
 
 
-if (unlockArchive) {
+        /*
+         * IMPORTANTE:
+         *
+         * Solo reemplazamos el texto
+         * de elementos que no contienen
+         * otros elementos HTML.
+         */
 
-    unlockArchive.addEventListener("click", function () {
+        if (
+            element.children.length === 0
+        ) {
 
-        archiveMessage.textContent =
-            "> ACCESS DENIED. CLEARANCE LEVEL 0.";
+            element.textContent =
+                translation;
 
-        unlockArchive.textContent =
-            "ACCESS DENIED";
-
-        unlockArchive.disabled = true;
-
-        setTimeout(() => {
-
-            archiveMessage.textContent =
-                "> INCIDENT LOGGED.";
-
-        }, 2500);
+        }
 
     });
 
+
+    if (language === "es") {
+
+        langES.classList.add(
+            "active"
+        );
+
+        langEN.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    if (language === "en") {
+
+        langEN.classList.add(
+            "active"
+        );
+
+        langES.classList.remove(
+            "active"
+        );
+
+    }
+
 }
 
 
-/* ---------- RANDOM SYSTEM GLITCH ---------- */
+/* ==========================================
+   LANGUAGE BUTTONS
+========================================== */
 
-function systemGlitch() {
+langES.addEventListener(
+    "click",
+    function() {
 
-    const elements = document.querySelectorAll(
-        ".entity-card, .hero-terminal, .game-card"
+        setLanguage("es");
+
+    }
+);
+
+
+langEN.addEventListener(
+    "click",
+    function() {
+
+        setLanguage("en");
+
+    }
+);
+
+
+/* ==========================================
+   DATABASE INTEGRITY
+========================================== */
+
+const integrity =
+    document.getElementById(
+        "integrity"
     );
 
-    if (elements.length === 0) return;
 
-    const element =
-        elements[Math.floor(Math.random() * elements.length)];
+let databaseIntegrity = 97.4;
 
-    element.style.transform =
-        "translateX(" +
-        (Math.random() * 4 - 2) +
-        "px)";
 
-    setTimeout(() => {
+function updateIntegrity() {
 
-        element.style.transform = "";
+    if (!integrity)
+        return;
 
-    }, 100);
+
+    const variation =
+        (Math.random() * .4) - .2;
+
+
+    databaseIntegrity +=
+        variation;
+
+
+    databaseIntegrity =
+        Math.max(
+            94,
+            Math.min(
+                99,
+                databaseIntegrity
+            )
+        );
+
+
+    integrity.textContent =
+        databaseIntegrity.toFixed(1)
+        + "%";
 
 }
 
 
-setInterval(systemGlitch, 8000);
+setInterval(
+    updateIntegrity,
+    4000
+);
 
 
-/* ---------- CONSOLE MESSAGE ---------- */
+/* ==========================================
+   ENTITY GLITCH
+========================================== */
+
+const entityCards =
+    document.querySelectorAll(
+        ".entity-card"
+    );
+
+
+function randomGlitch() {
+
+    if (
+        entityCards.length === 0
+    )
+        return;
+
+
+    const card =
+        entityCards[
+            Math.floor(
+                Math.random()
+                * entityCards.length
+            )
+        ];
+
+
+    card.style.transform =
+        "translateX(-2px)";
+
+
+    setTimeout(
+        () => {
+
+            card.style.transform =
+                "translateX(2px)";
+
+        },
+        60
+    );
+
+
+    setTimeout(
+        () => {
+
+            card.style.transform =
+                "";
+
+        },
+        120
+    );
+
+}
+
+
+setInterval(
+    randomGlitch,
+    7000
+);
+
+
+/* ==========================================
+   DOWNLOAD BUTTONS
+========================================== */
+
+const downloadOptions =
+    document.querySelectorAll(
+        ".download-option"
+    );
+
+
+downloadOptions.forEach(
+    option => {
+
+        option.addEventListener(
+            "click",
+            function(event) {
+
+                const link =
+                    this.getAttribute(
+                        "href"
+                    );
+
+
+                /*
+                 * Mientras el enlace sea "#",
+                 * mostramos que todavía
+                 * no está disponible.
+                 */
+
+                if (
+                    link === "#"
+                ) {
+
+                    event.preventDefault();
+
+
+                    const platform =
+                        this.dataset.platform;
+
+
+                    if (
+                        currentLanguage === "es"
+                    ) {
+
+                        alert(
+                            "La descarga para "
+                            + platform
+                            + " todavía no está disponible."
+                        );
+
+                    } else {
+
+                        alert(
+                            "The "
+                            + platform
+                            + " download is not available yet."
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+const sections =
+    document.querySelectorAll(
+        ".section"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .08
+        }
+    );
+
+
+sections.forEach(
+    section => {
+
+        section.style.opacity =
+            "0";
+
+        section.style.transform =
+            "translateY(20px)";
+
+        section.style.transition =
+            "opacity .8s ease, transform .8s ease";
+
+        observer.observe(
+            section
+        );
+
+    }
+);
+
+
+/* ==========================================
+   CONSOLE
+========================================== */
 
 console.log(
     "%cRXU CORPORATION",
-    "font-size:20px;font-weight:bold;"
+    "color:#b00000;font-size:24px;font-weight:bold;"
 );
 
+
 console.log(
-    "Containment Operations System initialized."
+    "%cFILE: ROTTEN NIGHTMARE",
+    "color:#777;font-size:14px;"
 );
+
+
+console.log(
+    "RXU Containment Operations System initialized."
+);
+
 
 console.log(
     "WARNING: Unauthorized access is prohibited."
 );
 
+
 console.log(
-    "FILE: ROTTEN NIGHTMARE // SYSTEM ONLINE"
+    "Convergences detected: 12"
 );
-
-
-/* ---------- RANDOM DATABASE INTEGRITY ---------- */
-
-const terminalContent =
-    document.querySelector(".terminal-content");
-
-if (terminalContent) {
-
-    let integrity = 97.4;
-
-    setInterval(() => {
-
-        const variation =
-            (Math.random() * 0.4) - 0.2;
-
-        integrity += variation;
-
-        integrity =
-            Math.max(94, Math.min(99, integrity));
-
-        const paragraphs =
-            terminalContent.querySelectorAll("p");
-
-        paragraphs.forEach(p => {
-
-            if (
-                p.textContent.includes(
-                    "DATABASE INTEGRITY"
-                )
-            ) {
-
-                p.innerHTML =
-                    "> DATABASE INTEGRITY: " +
-                    "<span>" +
-                    integrity.toFixed(1) +
-                    "%</span>";
-
-            }
-
-        });
-
-    }, 5000);
-
-}
-
-
-/* ---------- SCROLL REVEAL ---------- */
-
-const sections =
-    document.querySelectorAll(".section");
-
-
-const observer =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform =
-                        "translateY(0)";
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.1
-        }
-
-    );
-
-
-sections.forEach(section => {
-
-    section.style.opacity = "0";
-    section.style.transform = "translateY(20px)";
-    section.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
-
-    observer.observe(section);
-
-});
