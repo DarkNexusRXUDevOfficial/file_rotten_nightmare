@@ -4,324 +4,1840 @@
 ========================================== */
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+
+body {
+    background: #050303;
+    color: #d0d0d0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    overflow-x: hidden;
+}
+
+
 /* ==========================================
-   LANGUAGE SYSTEM
+   CRT
 ========================================== */
 
-let currentLanguage = "es";
+.crt-overlay {
+    position: fixed;
+    inset: 0;
 
-const langES = document.getElementById("langES");
-const langEN = document.getElementById("langEN");
+    pointer-events: none;
+
+    z-index: 9998;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,.6)
+        );
+}
 
 
-function setLanguage(language) {
+.scanlines {
+    position: fixed;
+    inset: 0;
 
-    currentLanguage = language;
+    pointer-events: none;
 
-    document.documentElement.lang = language;
+    z-index: 9999;
 
-    const elements =
-        document.querySelectorAll(
-            "[data-es][data-en]"
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,0,0,.025) 0px,
+            rgba(255,0,0,.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 78px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 45px;
+
+    background:
+        rgba(7,0,0,.96);
+
+    border-bottom:
+        1px solid #3a0b0b;
+
+    backdrop-filter:
+        blur(12px);
+
+    z-index: 1000;
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   REAL LOGO
+========================================== */
+
+.rxu-image {
+    width: 46px;
+    height: 46px;
+
+    object-fit: contain;
+
+    border:
+        1px solid #720000;
+
+    background:
+        #080000;
+
+    padding: 4px;
+}
+
+
+.brand-text {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.brand-text span {
+    color: #ddd;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.brand-text small {
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================
+   NAV
+========================================== */
+
+.navigation {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.navigation a {
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: .2s;
+}
+
+
+.navigation a:hover {
+    color: #e00000;
+
+    text-shadow:
+        0 0 10px
+        rgba(220,0,0,.5);
+}
+
+
+/* ==========================================
+   LANGUAGE
+========================================== */
+
+.header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.language-selector {
+    display: flex;
+
+    gap: 4px;
+
+    padding: 3px;
+
+    border:
+        1px solid #501010;
+
+    background:
+        #100303;
+}
+
+
+.lang {
+    min-width: 76px;
+
+    padding: 8px 10px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.lang:hover {
+    color: #fff;
+}
+
+
+.lang.active {
+    color: #fff;
+
+    background:
+        #8a0000;
+
+    box-shadow:
+        0 0 15px
+        rgba(150,0,0,.25);
+}
+
+
+.system-status {
+    color: #555;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: #c00000;
+
+    box-shadow:
+        0 0 10px #c00000;
+
+    animation:
+        pulse 2s infinite;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding:
+        150px 9%
+        90px;
+
+    overflow: hidden;
+}
+
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(130,0,0,.2),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(100,0,0,.1),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #090000,
+            #050505 55%,
+            #0b0000
+        );
+}
+
+
+/* ==========================================
+   HERO TEXT
+========================================== */
+
+.classification {
+    margin-bottom: 30px;
+
+    color: #793333;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+
+.hero h1 {
+    max-width: 900px;
+
+    color: #ddd;
+
+    font-size:
+        clamp(
+            52px,
+            8vw,
+            105px
         );
 
+    line-height: .86;
 
-    elements.forEach(element => {
-
-        const text =
-            element.getAttribute(
-                "data-" + language
-            );
-
-        if (text !== null) {
-
-            element.textContent = text;
-
-        }
-
-    });
+    letter-spacing: -5px;
+}
 
 
-    if (language === "es") {
+.hero h1 span {
+    color: #b40000;
 
-        langES.classList.add("active");
-        langEN.classList.remove("active");
+    text-shadow:
+        0 0 20px
+        rgba(180,0,0,.25);
+}
 
-        document.title =
-            "FILE: ROTTEN NIGHTMARE | RXU CORPORATION";
 
-    } else {
+.title-line {
+    width: 220px;
+    height: 2px;
 
-        langEN.classList.add("active");
-        langES.classList.remove("active");
+    margin: 35px 0;
 
-        document.title =
-            "FILE: ROTTEN NIGHTMARE | RXU CORPORATION";
+    background:
+        linear-gradient(
+            90deg,
+            #c00000,
+            transparent
+        );
+}
 
+
+.hero-subtitle {
+    margin-bottom: 18px;
+
+    color: #aaa;
+
+    font-size: 16px;
+
+    letter-spacing: 3px;
+
+    line-height: 1.5;
+}
+
+
+.hero-description {
+    max-width: 600px;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    border:
+        1px solid #542020;
+
+    background:
+        rgba(30,0,0,.3);
+
+    color: #aaa;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.button:hover {
+    border-color: #c00000;
+
+    color: #fff;
+
+    background:
+        rgba(130,0,0,.2);
+}
+
+
+.button-red {
+    border-color: #a00000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #760000,
+            #250000
+        );
+
+    color: #eee;
+}
+
+
+.warning-strip {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+    padding: 11px 15px;
+
+    border-left:
+        2px solid #a00000;
+
+    background:
+        rgba(90,0,0,.1);
+
+    color: #713333;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   TERMINAL
+========================================== */
+
+.terminal-window {
+    border:
+        1px solid #3a1111;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18,0,0,.96),
+            rgba(5,5,5,.98)
+        );
+
+    box-shadow:
+        0 0 60px
+        rgba(100,0,0,.08);
+}
+
+
+.terminal-top {
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+
+    border-bottom:
+        1px solid #351010;
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.terminal-top div {
+    display: flex;
+
+    gap: 5px;
+}
+
+
+.terminal-top i {
+    width: 7px;
+    height: 7px;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: #450000;
+}
+
+
+.terminal-body {
+    min-height: 390px;
+
+    padding: 30px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+
+.terminal-line span {
+    color: #aaa;
+}
+
+
+.green {
+    color: #888 !important;
+}
+
+
+.red-text {
+    color: #d00000 !important;
+
+    text-shadow:
+        0 0 8px
+        rgba(180,0,0,.4);
+}
+
+
+.terminal-cursor {
+    color: #b00000;
+
+    animation:
+        blink 1s infinite;
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.section {
+    position: relative;
+
+    padding:
+        130px 9%;
+
+    border-top:
+        1px solid #1d0808;
+}
+
+
+.dark-section {
+    background:
+        linear-gradient(
+            180deg,
+            #070000,
+            #030303
+        );
+}
+
+
+.section-heading {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 18px;
+
+    margin-bottom: 60px;
+}
+
+
+.section-heading > span {
+    color: #8c1717;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.section-heading h2 {
+    color: #ccc;
+
+    font-size: 30px;
+
+    line-height: 1.3;
+
+    letter-spacing: 3px;
+}
+
+
+.section-description {
+    margin-bottom: 45px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   GAME
+========================================== */
+
+.game-layout {
+    display: grid;
+
+    grid-template-columns:
+        1fr .75fr;
+
+    gap: 90px;
+}
+
+
+.red-label {
+    margin-bottom: 20px;
+
+    color: #a00000;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+.game-description h3 {
+    margin-bottom: 25px;
+
+    color: #ccc;
+
+    font-size: 36px;
+
+    line-height: 1.2;
+}
+
+
+.game-description p {
+    max-width: 700px;
+
+    margin-bottom: 20px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+.game-description strong {
+    color: #b00000;
+}
+
+
+.quote-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 45px;
+
+    padding: 25px;
+
+    border-left:
+        2px solid #a00000;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(120,0,0,.1),
+            transparent
+        );
+}
+
+
+.quote-box span {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+.quote-box strong {
+    color: #aaa;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   INFO PANEL
+========================================== */
+
+.info-panel {
+    height: fit-content;
+
+    border:
+        1px solid #301010;
+
+    background:
+        #080303;
+}
+
+
+.panel-title {
+    padding: 17px;
+
+    border-bottom:
+        1px solid #301010;
+
+    color: #733333;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.info-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    border-bottom:
+        1px solid #190909;
+
+    font-size: 10px;
+}
+
+
+.info-row span {
+    color: #555;
+}
+
+
+.info-row strong {
+    color: #888;
+
+    text-align: right;
+
+    font-weight: normal;
+}
+
+
+/* ==========================================
+   ARCHIVE
+========================================== */
+
+.archive-layout {
+    display: grid;
+
+    grid-template-columns:
+        1fr .65fr;
+
+    gap: 35px;
+}
+
+
+.archive-document,
+.archive-terminal {
+    border:
+        1px solid #301010;
+
+    background:
+        #080303;
+}
+
+
+.document-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 16px;
+
+    border-bottom:
+        1px solid #301010;
+
+    color: #633333;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.document-content {
+    padding: 35px;
+}
+
+
+.document-content h3 {
+    margin-bottom: 25px;
+
+    color: #bbb;
+
+    font-size: 20px;
+}
+
+
+.document-content p {
+    margin-bottom: 20px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+.classified-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: 30px;
+
+    color: #300000;
+
+    font-size: 20px;
+}
+
+
+.database-list {
+    padding: 25px;
+
+    color: #555;
+
+    font-size: 11px;
+
+    line-height: 2.6;
+}
+
+
+.database-list div {
+    border-bottom:
+        1px solid #150606;
+}
+
+
+/* ==========================================
+   ENTITY DATABASE
+========================================== */
+
+.entity-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.entity-card {
+    overflow: hidden;
+
+    border:
+        1px solid #291010;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d0505,
+            #050505
+        );
+
+    transition:
+        .3s;
+}
+
+
+.entity-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        #700000;
+
+    box-shadow:
+        0 15px 35px
+        rgba(100,0,0,.12);
+}
+
+
+.entity-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    color: #4e4e4e;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.danger {
+    color: #a52222;
+}
+
+
+/* ==========================================
+   ENTITY IMAGES
+========================================== */
+
+.entity-image {
+    position: relative;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-top:
+        1px solid #190707;
+
+    border-bottom:
+        1px solid #190707;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120,0,0,.15),
+            #070202 70%
+        );
+}
+
+
+.entity-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: .9;
+
+    transition:
+        transform .4s,
+        opacity .4s;
+}
+
+
+.entity-card:hover
+.entity-image img {
+
+    transform:
+        scale(1.05);
+
+    opacity: 1;
+}
+
+
+.entity-image span {
+    position: absolute;
+
+    bottom: 12px;
+    left: 15px;
+
+    color: #d00000;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px #000;
+}
+
+
+.entity-card h3 {
+    padding:
+        20px 18px 8px;
+
+    color: #aaa;
+
+    font-size: 16px;
+
+    line-height: 1.3;
+
+    letter-spacing: 2px;
+}
+
+
+.entity-card p {
+    padding:
+        0 18px 20px;
+
+    color: #555;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.entity-status {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding:
+        14px 18px;
+
+    border-top:
+        1px solid #1b0808;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.entity-status span {
+    color: #444;
+}
+
+
+.entity-status strong {
+    color: #a00000;
+
+    font-weight: normal;
+}
+
+
+/* ==========================================
+   DOWNLOAD
+========================================== */
+
+.download-section {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(120,0,0,.12),
+            transparent 45%
+        );
+}
+
+
+.download-box {
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 50px;
+
+    border:
+        1px solid #541010;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90,0,0,.13),
+            rgba(5,5,5,.9)
+        );
+}
+
+
+.download-logo {
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid #8e0000;
+
+    color: #b00000;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+
+.download-content h3 {
+    margin-bottom: 15px;
+
+    color: #ccc;
+
+    font-size: 26px;
+}
+
+
+.download-content p {
+    margin-bottom: 25px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.download-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.download-option {
+    min-height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border:
+        1px solid #491010;
+
+    background:
+        rgba(50,0,0,.25);
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+
+.download-option:hover {
+    border-color: #c00000;
+
+    background:
+        rgba(130,0,0,.2);
+
+    color: #fff;
+
+    transform:
+        translateY(-3px);
+}
+
+
+.download-option strong {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.download-option span {
+    color: #6a3333;
+
+    font-size: 10px;
+}
+
+
+.download-content small {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #444;
+
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   RXU
+========================================== */
+
+.rxu-layout {
+    display: grid;
+
+    grid-template-columns:
+        1fr .7fr;
+
+    gap: 80px;
+}
+
+
+.rxu-layout h3 {
+    margin-bottom: 25px;
+
+    color: #ccc;
+
+    font-size: 32px;
+}
+
+
+.rxu-layout p {
+    max-width: 650px;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+.corporate-terminal {
+    padding: 30px;
+
+    border:
+        1px solid #351010;
+
+    background:
+        #070202;
+
+    color: #5c5c5c;
+
+    font-size: 11px;
+
+    line-height: 2.4;
+}
+
+
+.corporate-terminal div {
+    border-bottom:
+        1px solid #180707;
+}
+
+
+/* ==========================================
+   FINAL
+========================================== */
+
+.final-section {
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-top:
+        1px solid #260707;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(110,0,0,.12),
+            transparent 55%
+        );
+
+    padding: 80px 20px;
+}
+
+
+.final-noise {
+    margin-bottom: 30px;
+
+    color: #5d1717;
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+}
+
+
+.final-section h2 {
+    color: #aaa;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            58px
+        );
+
+    line-height: 1.2;
+
+    letter-spacing: 3px;
+}
+
+
+.final-section h2 span {
+    color: #a00000;
+}
+
+
+.final-line {
+    width: 160px;
+    height: 1px;
+
+    margin: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a00000,
+            transparent
+        );
+}
+
+
+.final-section p {
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        30px 9%;
+
+    border-top:
+        1px solid #210707;
+
+    background:
+        #030303;
+
+    color: #444;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: .35;
+    }
+
+    50% {
+        opacity: 1;
     }
 
 }
 
 
-langES.addEventListener(
-    "click",
-    () => setLanguage("es")
-);
+@keyframes blink {
 
+    0%, 45% {
+        opacity: 1;
+    }
 
-langEN.addEventListener(
-    "click",
-    () => setLanguage("en")
-);
-
-
-/* ==========================================
-   DATABASE INTEGRITY
-========================================== */
-
-const integrity =
-    document.getElementById("integrity");
-
-let databaseIntegrity = 97.4;
-
-
-function updateIntegrity() {
-
-    if (!integrity) return;
-
-    const variation =
-        (Math.random() * 0.4) - 0.2;
-
-    databaseIntegrity += variation;
-
-    databaseIntegrity =
-        Math.max(
-            94.0,
-            Math.min(
-                99.0,
-                databaseIntegrity
-            )
-        );
-
-
-    integrity.textContent =
-        databaseIntegrity.toFixed(1) + "%";
+    46%, 100% {
+        opacity: 0;
+    }
 
 }
 
 
-setInterval(
-    updateIntegrity,
-    4000
-);
-
-
 /* ==========================================
-   RANDOM GLITCH
+   TABLET
 ========================================== */
 
-const entityCards =
-    document.querySelectorAll(
-        ".entity-card"
-    );
+@media (max-width: 1100px) {
 
+    .navigation {
+        gap: 15px;
+    }
 
-function randomGlitch() {
+    .navigation a {
+        font-size: 10px;
+    }
 
-    if (entityCards.length === 0)
-        return;
+    .system-status {
+        display: none;
+    }
 
-
-    const card =
-        entityCards[
-            Math.floor(
-                Math.random() *
-                entityCards.length
-            )
-        ];
-
-
-    card.style.transform =
-        "translateX(-2px)";
-
-
-    setTimeout(() => {
-
-        card.style.transform =
-            "translateX(2px)";
-
-    }, 60);
-
-
-    setTimeout(() => {
-
-        card.style.transform =
-            "";
-
-    }, 120);
+    .entity-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 
 }
 
 
-setInterval(
-    randomGlitch,
-    7000
-);
-
-
 /* ==========================================
-   DOWNLOAD LINKS
+   TABLET / SMALL LAPTOP
 ========================================== */
 
-const downloadLinks =
-    document.querySelectorAll(
-        ".download-link"
-    );
+@media (max-width: 850px) {
 
+    .header {
+        min-height: 72px;
 
-downloadLinks.forEach(link => {
+        padding:
+            10px 20px;
+    }
 
-    link.addEventListener(
-        "click",
-        function(event) {
+    .navigation {
+        display: none;
+    }
 
-            if (
-                this.getAttribute("href") === "#"
-            ) {
+    .hero {
+        grid-template-columns: 1fr;
 
-                event.preventDefault();
+        gap: 50px;
 
+        padding:
+            125px 7%
+            80px;
+    }
 
-                if (
-                    currentLanguage === "es"
-                ) {
+    .hero h1 {
+        font-size:
+            clamp(
+                48px,
+                11vw,
+                80px
+            );
+    }
 
-                    alert(
-                        "El enlace de descarga todavía no está disponible."
-                    );
+    .game-layout,
+    .archive-layout,
+    .rxu-layout {
+        grid-template-columns: 1fr;
+    }
 
-                } else {
+    .download-box {
+        grid-template-columns: 1fr;
 
-                    alert(
-                        "The download link is not available yet."
-                    );
+        text-align: center;
+    }
 
-                }
-
-            }
-
-        }
-    );
-
-});
-
-
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
-
-const sections =
-    document.querySelectorAll(
-        ".section"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.08
-        }
-    );
-
-
-sections.forEach(section => {
-
-    observer.observe(section);
-
-});
-
-
-/* ==========================================
-   TERMINAL CONSOLE
-========================================== */
-
-console.log(
-    "%cRXU CORPORATION",
-    "color:#b00000;font-size:24px;font-weight:bold;"
-);
-
-console.log(
-    "%cFILE: ROTTEN NIGHTMARE",
-    "color:#777;font-size:14px;"
-);
-
-console.log(
-    "RXU Containment Operations System initialized."
-);
-
-console.log(
-    "WARNING: Unauthorized access is prohibited."
-);
-
-console.log(
-    "Convergences detected: 12"
-);
-
-
-/* ==========================================
-   RANDOM SYSTEM MESSAGE
-========================================== */
-
-const systemMessages = [
-
-    "UNKNOWN SIGNAL DETECTED",
-    "CONTAINMENT FLUCTUATION",
-    "DATABASE DESYNCHRONIZATION",
-    "UNVERIFIED ENTITY DETECTED",
-    "REMOTE RESPONSE: NONE",
-    "CONTAINMENT PARAMETERS STABLE",
-    "CAMERA NETWORK ONLINE",
-    "OPERATOR CONNECTION STABLE"
-
-];
-
-
-function systemMessage() {
-
-    const message =
-        systemMessages[
-            Math.floor(
-                Math.random() *
-                systemMessages.length
-            )
-        ];
-
-
-    console.log(
-        "[RXU-COS] > " + message
-    );
+    .download-buttons {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
 
 }
 
 
-setInterval(
-    systemMessage,
-    6000
-);
+/* ==========================================
+   PHONE
+========================================== */
+
+@media (max-width: 600px) {
+
+    html {
+        font-size: 17px;
+    }
+
+
+    .header {
+        position: absolute;
+
+        align-items: flex-start;
+
+        min-height: 90px;
+
+        padding:
+            15px;
+    }
+
+
+    .brand-text {
+        display: none;
+    }
+
+
+    .rxu-image {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .header-right {
+        margin-left: auto;
+    }
+
+
+    .language-selector {
+        padding: 3px;
+    }
+
+
+    .lang {
+        min-width: 80px;
+
+        padding: 9px 7px;
+
+        font-size: 9px;
+    }
+
+
+    .hero {
+        padding:
+            135px 6%
+            70px;
+    }
+
+
+    .classification {
+        font-size: 9px;
+
+        line-height: 1.6;
+    }
+
+
+    .hero h1 {
+        font-size:
+            clamp(
+                45px,
+                14vw,
+                65px
+            );
+
+        letter-spacing:
+            -3px;
+    }
+
+
+    .hero-subtitle {
+        font-size: 15px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .hero-description {
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+
+    .hero-buttons .button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .warning-strip {
+        width: 100%;
+
+        font-size: 9px;
+    }
+
+
+    .terminal-body {
+        min-height: 330px;
+
+        padding: 22px;
+
+        font-size: 12px;
+
+        line-height: 1.9;
+
+        overflow-x: auto;
+    }
+
+
+    .section {
+        padding:
+            90px 6%;
+    }
+
+
+    .section-heading {
+        gap: 10px;
+
+        margin-bottom: 40px;
+
+        align-items: flex-start;
+    }
+
+
+    .section-heading h2 {
+        font-size: 23px;
+
+        line-height: 1.4;
+    }
+
+
+    .game-description h3 {
+        font-size: 28px;
+    }
+
+
+    .game-description p,
+    .document-content p,
+    .rxu-layout p {
+        font-size: 15px;
+
+        line-height: 1.9;
+    }
+
+
+    .entity-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .entity-image {
+        height: 260px;
+    }
+
+
+    .entity-card h3 {
+        font-size: 17px;
+    }
+
+
+    .entity-card p {
+        font-size: 12px;
+    }
+
+
+    .download-box {
+        padding: 30px 20px;
+    }
+
+
+    .download-logo {
+        width: 140px;
+        height: 140px;
+
+        margin: auto;
+
+        font-size: 32px;
+    }
+
+
+    .download-content h3 {
+        font-size: 22px;
+
+        line-height: 1.4;
+    }
+
+
+    .download-buttons {
+        grid-template-columns: 1fr;
+    }
+
+
+    .download-option {
+        min-height: 85px;
+    }
+
+
+    .corporate-terminal {
+        font-size: 11px;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding:
+            30px 20px;
+    }
+
+
+    .final-section h2 {
+        font-size: 27px;
+
+        letter-spacing: 1.5px;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .lang {
+        min-width: 65px;
+
+        font-size: 8px;
+    }
+
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+}
