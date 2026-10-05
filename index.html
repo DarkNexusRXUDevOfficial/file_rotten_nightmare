@@ -1,1131 +1,1516 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FILE: ROTTEN NIGHTMARE | RXU CORPORATION</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description" content="Official FILE: ROTTEN NIGHTMARE website - RXU Corporation">
-    <meta name="theme-color" content="#080000">
+    <title>
+        FILE: ROTTEN NIGHTMARE | RXU CORPORATION
+    </title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Official FILE: ROTTEN NIGHTMARE website - RXU Corporation"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080000"
+    >
+
+    <!-- ICONO DEL SITIO -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         CRT EFFECT
-    ========================== -->
 
-    <div class="crt-overlay"></div>
-    <div class="scanlines"></div>
+<!-- =========================================
+     CRT
+========================================= -->
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<div class="crt-overlay"></div>
 
-    <header class="header">
+<div class="scanlines"></div>
 
-        <div class="brand">
 
-            <div class="rxu-logo">
-                RXU
-            </div>
 
-            <div class="brand-text">
-                <span>RXU</span>
-                <small>CORPORATION</small>
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+
+    <div class="brand">
+
+        <!-- LOGO -->
+        <img
+            src="assets/logo.png"
+            alt="RXU Corporation"
+            class="rxu-image"
+        >
+
+        <div class="brand-text">
+
+            <span>RXU</span>
+
+            <small>
+                CORPORATION
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <nav class="navigation">
+
+        <a
+            href="#home"
+            data-es="INICIO"
+            data-en="HOME"
+        >
+            INICIO
+        </a>
+
+        <a
+            href="#game"
+            data-es="JUEGO"
+            data-en="GAME"
+        >
+            JUEGO
+        </a>
+
+        <a
+            href="#archive"
+            data-es="ARCHIVO"
+            data-en="ARCHIVE"
+        >
+            ARCHIVO
+        </a>
+
+        <a
+            href="#entities"
+            data-es="ENTIDADES"
+            data-en="ENTITIES"
+        >
+            ENTIDADES
+        </a>
+
+        <a
+            href="#download"
+            data-es="DESCARGAS"
+            data-en="DOWNLOADS"
+        >
+            DESCARGAS
+        </a>
+
+    </nav>
+
+
+
+    <div class="header-right">
+
+
+        <!-- IDIOMAS -->
+
+        <div class="language-selector">
+
+            <button
+                id="langES"
+                class="lang active"
+            >
+                ESPAÑOL
+            </button>
+
+            <button
+                id="langEN"
+                class="lang"
+            >
+                ENGLISH
+            </button>
+
+        </div>
+
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <span
+                data-es="SISTEMA ACTIVO"
+                data-en="SYSTEM ONLINE"
+            >
+                SISTEMA ACTIVO
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+
+    <div class="hero-background"></div>
+
+
+
+    <div class="hero-content">
+
+
+        <div class="classification">
+
+            RXU CORPORATION //
+
+            <span
+                data-es="OPERACIONES DE CONTENCIÓN"
+                data-en="CONTAINMENT OPERATIONS"
+            >
+                OPERACIONES DE CONTENCIÓN
+            </span>
+
+        </div>
+
+
+
+        <h1>
+
+            FILE:
+
+            <span>
+                ROTTEN
+            </span>
+
+            NIGHTMARE
+
+        </h1>
+
+
+
+        <div class="title-line"></div>
+
+
+
+        <p
+            class="hero-subtitle"
+            data-es="ALGUNAS PESADILLAS NO DEBERÍAN EXISTIR."
+            data-en="SOME NIGHTMARES SHOULD NOT EXIST."
+        >
+            ALGUNAS PESADILLAS NO DEBERÍAN EXISTIR.
+        </p>
+
+
+
+        <p
+            class="hero-description"
+            data-es="RXU Corporation mantiene bajo contención entidades que han trascendido sus propios universos."
+            data-en="RXU Corporation contains entities that have transcended their original universes."
+        >
+            RXU Corporation mantiene bajo contención entidades que han trascendido sus propios universos.
+        </p>
+
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#game"
+                class="button button-red"
+                data-es="ACCEDER AL ARCHIVO"
+                data-en="ACCESS FILE"
+            >
+                ACCEDER AL ARCHIVO
+            </a>
+
+
+            <a
+                href="#download"
+                class="button"
+                data-es="DESCARGAR"
+                data-en="DOWNLOAD"
+            >
+                DESCARGAR
+            </a>
+
+        </div>
+
+
+
+        <div class="warning-strip">
+
+            <span>⚠</span>
+
+            <span
+                data-es="ARCHIVO CLASIFICADO // NIVEL DE ACCESO: 0"
+                data-en="CLASSIFIED FILE // CLEARANCE LEVEL: 0"
+            >
+                ARCHIVO CLASIFICADO // NIVEL DE ACCESO: 0
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TERMINAL -->
+
+    <div class="terminal-window">
+
+        <div class="terminal-top">
+
+            <span>
+                RXU-COS // TERMINAL_01
+            </span>
+
+            <div>
+
+                <i></i>
+                <i></i>
+                <i></i>
+
             </div>
 
         </div>
 
 
-        <nav class="navigation">
+        <div class="terminal-body">
 
-            <a href="#home" data-es="INICIO" data-en="HOME">
-                INICIO
-            </a>
+            <div class="terminal-line">
+                > RXU CONTAINMENT OPERATIONS SYSTEM
+            </div>
 
-            <a href="#game" data-es="JUEGO" data-en="GAME">
-                JUEGO
-            </a>
+            <div class="terminal-line">
+                > BOOTING...
+            </div>
 
-            <a href="#archive" data-es="ARCHIVO" data-en="ARCHIVE">
-                ARCHIVO
-            </a>
+            <div class="terminal-line">
+                > OPERATOR:
+                <span>IRIS MORGAN</span>
+            </div>
 
-            <a href="#entities" data-es="ENTIDADES" data-en="ENTITIES">
-                ENTIDADES
-            </a>
+            <div class="terminal-line">
+                > CLEARANCE:
+                <span>LEVEL 0</span>
+            </div>
 
-            <a href="#download" data-es="DESCARGA" data-en="DOWNLOAD">
-                DESCARGA
-            </a>
+            <div class="terminal-line">
+                > FACILITY:
+                <span class="green">
+                    ONLINE
+                </span>
+            </div>
 
-        </nav>
+            <div class="terminal-line">
+                > CONTAINMENT:
+                <span class="green">
+                    ACTIVE
+                </span>
+            </div>
+
+            <div class="terminal-line">
+                > DATABASE:
+                <span id="integrity">
+                    97.4%
+                </span>
+            </div>
+
+            <div class="terminal-line">
+                > CONVERGENCES:
+                <span>
+                    12
+                </span>
+            </div>
+
+            <br>
+
+            <div class="terminal-line red-text">
+                > UNKNOWN SIGNAL DETECTED
+            </div>
+
+            <div class="terminal-line red-text">
+                > SOURCE: UNKNOWN
+            </div>
+
+            <br>
+
+            <div class="terminal-line">
+                > DO NOT LEAVE THE STATION.
+            </div>
+
+            <span class="terminal-cursor">
+                █
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-        <div class="header-right">
 
-            <div class="language">
+<!-- =========================================
+     GAME
+========================================= -->
 
-                <button id="langES" class="lang active">
-                    ES
-                </button>
+<section
+    id="game"
+    class="section"
+>
 
-                <span>/</span>
 
-                <button id="langEN" class="lang">
-                    EN
-                </button>
+    <div class="section-heading">
 
+        <span>
+            01 //
+        </span>
+
+        <h2
+            data-es="EL JUEGO"
+            data-en="THE GAME"
+        >
+            EL JUEGO
+        </h2>
+
+    </div>
+
+
+
+    <div class="game-layout">
+
+
+        <div class="game-description">
+
+            <div class="red-label">
+                FILE: ROTTEN NIGHTMARE
             </div>
 
 
-            <div class="system-status">
+            <h3
+                data-es="BIENVENIDO A RXU."
+                data-en="WELCOME TO RXU."
+            >
+                BIENVENIDO A RXU.
+            </h3>
 
-                <span class="status-dot"></span>
 
-                <span
-                    data-es="SISTEMA ACTIVO"
-                    data-en="SYSTEM ONLINE">
-                    SISTEMA ACTIVO
+            <p
+                data-es="Eres Iris Morgan, una empleada de RXU Corporation. Aceptaste el puesto por el salario. Nadie te explicó exactamente qué tendrías que vigilar."
+                data-en="You are Iris Morgan, an employee of RXU Corporation. You accepted the position because of the pay. Nobody told you exactly what you would be monitoring."
+            >
+                Eres Iris Morgan, una empleada de RXU Corporation.
+                Aceptaste el puesto por el salario.
+                Nadie te explicó exactamente qué tendrías que vigilar.
+            </p>
+
+
+            <p
+                data-es="En las instalaciones existen entidades provenientes de múltiples realidades. Algunas son leyendas. Otras son monstruos. Algunas fueron olvidadas hace mucho tiempo."
+                data-en="Inside the facility are entities originating from multiple realities. Some are legends. Others are monsters. Some were forgotten long ago."
+            >
+                En las instalaciones existen entidades provenientes
+                de múltiples realidades.
+                Algunas son leyendas.
+                Otras son monstruos.
+                Algunas fueron olvidadas hace mucho tiempo.
+            </p>
+
+
+            <p
+                data-es="Todas tienen algo en común: no deberían estar aquí."
+                data-en="They all have one thing in common: they should not be here."
+            >
+                Todas tienen algo en común:
+                <strong>
+                    no deberían estar aquí.
+                </strong>
+            </p>
+
+
+            <div class="quote-box">
+
+                <span>
+                    RXU CORPORATION
+                </span>
+
+                <strong>
+                    WE WILL MAKE TERROR GRAND AS IT ONCE WAS.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-panel">
+
+            <div class="panel-title">
+                RXU // FILE INFORMATION
+            </div>
+
+
+            <div class="info-row">
+                <span>PROJECT</span>
+                <strong>F:RN</strong>
+            </div>
+
+            <div class="info-row">
+                <span>GENRE</span>
+                <strong>
+                    ASYMMETRIC HORROR
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>PLATFORM</span>
+                <strong>
+                    WINDOWS / ANDROID / SCRATCH
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>STATUS</span>
+                <strong class="red-text">
+                    IN DEVELOPMENT
+                </strong>
+            </div>
+
+            <div class="info-row">
+                <span>CONVERGENCES</span>
+                <strong>
+                    12
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ARCHIVE
+========================================= -->
+
+<section
+    id="archive"
+    class="section dark-section"
+>
+
+
+    <div class="section-heading">
+
+        <span>
+            02 //
+        </span>
+
+        <h2
+            data-es="ARCHIVO CLASIFICADO"
+            data-en="CLASSIFIED ARCHIVE"
+        >
+            ARCHIVO CLASIFICADO
+        </h2>
+
+    </div>
+
+
+
+    <div class="archive-layout">
+
+
+        <div class="archive-document">
+
+            <div class="document-header">
+
+                <span>
+                    RXU-DOC-0001
+                </span>
+
+                <span>
+                    CLASSIFIED
                 </span>
 
             </div>
 
-        </div>
 
-    </header>
+            <div class="document-content">
 
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <main>
-
-        <section id="home" class="hero">
-
-            <div class="hero-background"></div>
+                <h3>
+                    CONVERGENCE PHENOMENON
+                </h3>
 
 
-            <div class="hero-content">
+                <p
+                    data-es="Las Convergencias son manifestaciones de entidades conocidas provenientes de diferentes universos."
+                    data-en="Convergences are manifestations of known entities originating from different universes."
+                >
+                    Las Convergencias son manifestaciones
+                    de entidades conocidas provenientes
+                    de diferentes universos.
+                </p>
 
-                <div class="classification">
-                    RXU CORPORATION //
-                    <span
-                        data-es="OPERACIONES DE CONTENCIÓN"
-                        data-en="CONTAINMENT OPERATIONS">
-                        OPERACIONES DE CONTENCIÓN
+
+                <p
+                    data-es="Su existencia está relacionada con el miedo, la creencia y la conciencia colectiva."
+                    data-en="Their existence is connected to fear, belief and collective awareness."
+                >
+                    Su existencia está relacionada con el miedo,
+                    la creencia y la conciencia colectiva.
+                </p>
+
+
+                <div class="classified-text">
+
+                    <span>
+                        ████████████████████████
                     </span>
-                </div>
 
+                    <span>
+                        ██████████████████
+                    </span>
 
-                <h1>
-                    FILE:
-                    <span>ROTTEN</span>
-                    NIGHTMARE
-                </h1>
-
-
-                <div class="title-line"></div>
-
-
-                <p
-                    class="hero-subtitle"
-                    data-es="ALGUNAS PESADILLAS NO DEBERÍAN EXISTIR."
-                    data-en="SOME NIGHTMARES SHOULD NOT EXIST.">
-
-                    ALGUNAS PESADILLAS NO DEBERÍAN EXISTIR.
-
-                </p>
-
-
-                <p
-                    class="hero-description"
-                    data-es="RXU Corporation mantiene bajo contención entidades que han trascendido sus propios universos."
-                    data-en="RXU Corporation contains entities that have transcended their original universes.">
-
-                    RXU Corporation mantiene bajo contención entidades que han trascendido sus propios universos.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#game"
-                        class="button button-red"
-                        data-es="ACCEDER AL ARCHIVO"
-                        data-en="ACCESS FILE">
-
-                        ACCEDER AL ARCHIVO
-
-                    </a>
-
-
-                    <a
-                        href="#download"
-                        class="button"
-                        data-es="DESCARGAR"
-                        data-en="DOWNLOAD">
-
-                        DESCARGAR
-
-                    </a>
-
-                </div>
-
-
-                <div class="warning-strip">
-
-                    <span>⚠</span>
-
-                    <span
-                        data-es="ARCHIVO CLASIFICADO // NIVEL DE ACCESO: 0"
-                        data-en="CLASSIFIED FILE // CLEARANCE LEVEL: 0">
-
-                        ARCHIVO CLASIFICADO // NIVEL DE ACCESO: 0
-
+                    <span>
+                        ██████████████████████████
                     </span>
 
                 </div>
 
             </div>
 
-
-            <!-- TERMINAL -->
-
-            <div class="terminal-window">
-
-                <div class="terminal-top">
-
-                    <span>RXU-COS // TERMINAL_01</span>
-
-                    <div>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </div>
-
-                </div>
+        </div>
 
 
-                <div class="terminal-body">
 
-                    <div class="terminal-line">
-                        > RXU CONTAINMENT OPERATIONS SYSTEM
-                    </div>
+        <div class="archive-terminal">
 
-                    <div class="terminal-line">
-                        > BOOTING...
-                    </div>
+            <div class="terminal-top">
+                DATABASE // CONVERGENCES
+            </div>
 
-                    <div class="terminal-line">
-                        > OPERATOR:
-                        <span>IRIS MORGAN</span>
-                    </div>
+            <div class="database-list">
 
-                    <div class="terminal-line">
-                        > CLEARANCE:
-                        <span>LEVEL 0</span>
-                    </div>
-
-                    <div class="terminal-line">
-                        > FACILITY:
-                        <span class="green">ONLINE</span>
-                    </div>
-
-                    <div class="terminal-line">
-                        > CONTAINMENT:
-                        <span class="green">ACTIVE</span>
-                    </div>
-
-                    <div class="terminal-line">
-                        > DATABASE:
-                        <span id="integrity">97.4%</span>
-                    </div>
-
-                    <div class="terminal-line">
-                        > CONVERGENCES:
-                        <span>12</span>
-                    </div>
-
-                    <br>
-
-                    <div class="terminal-line red-text">
-                        > UNKNOWN SIGNAL DETECTED
-                    </div>
-
-                    <div class="terminal-line red-text">
-                        > SOURCE: UNKNOWN
-                    </div>
-
-                    <br>
-
-                    <div class="terminal-line">
-                        > DO NOT LEAVE THE STATION.
-                    </div>
-
-                    <span class="terminal-cursor">█</span>
-
-                </div>
+                <div>001 // SONIC.EXE</div>
+                <div>002 // SADAKO</div>
+                <div>003 // SLENDERMAN</div>
+                <div>004 // JASON</div>
+                <div>005 // JEFF</div>
+                <div>006 // HEROBRINE</div>
+                <div>007 // MICHAEL MYERS</div>
+                <div>008 // GHOSTFACE</div>
+                <div>009 // FREDDY</div>
+                <div>010 // LAUGHING JACK</div>
+                <div>011 // LEATHERFACE</div>
+                <div>012 // CHUCKY</div>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
-        <!-- =========================
-             GAME
-        ========================== -->
 
-        <section id="game" class="section">
+<!-- =========================================
+     ENTITIES
+========================================= -->
 
-            <div class="section-heading">
+<section
+    id="entities"
+    class="section"
+>
 
-                <span>01 //</span>
 
-                <h2
-                    data-es="EL JUEGO"
-                    data-en="THE GAME">
-                    EL JUEGO
-                </h2>
+    <div class="section-heading">
+
+        <span>
+            03 //
+        </span>
+
+        <h2
+            data-es="BASE DE DATOS DE ENTIDADES"
+            data-en="ENTITY DATABASE"
+        >
+            BASE DE DATOS DE ENTIDADES
+        </h2>
+
+    </div>
+
+
+    <p
+        class="section-description"
+        data-es="Entidades actualmente registradas en el sistema de contención."
+        data-en="Entities currently registered within the containment system."
+    >
+        Entidades actualmente registradas
+        en el sistema de contención.
+    </p>
+
+
+
+    <div class="entity-grid">
+
+
+        <!-- =================================
+             SONIC.EXE
+        ================================== -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+
+                <span>
+                    RXU-001
+                </span>
+
+                <span class="danger">
+                    CRITICAL
+                </span>
 
             </div>
 
 
-            <div class="game-layout">
+            <div class="entity-image">
 
-                <div class="game-description">
+                <img
+                    src="assets/entities/sonic-exe.png"
+                    alt="Sonic.EXE"
+                >
 
-                    <div class="red-label">
-                        FILE: ROTTEN NIGHTMARE
-                    </div>
-
-
-                    <h3
-                        data-es="BIENVENIDO A RXU."
-                        data-en="WELCOME TO RXU.">
-
-                        BIENVENIDO A RXU.
-
-                    </h3>
-
-
-                    <p
-                        data-es="Eres Iris Morgan, una empleada de RXU Corporation. Aceptaste el puesto por el salario. Nadie te explicó exactamente qué tendrías que vigilar."
-                        data-en="You are Iris Morgan, an employee of RXU Corporation. You accepted the position because of the pay. Nobody told you exactly what you would be monitoring.">
-
-                        Eres Iris Morgan, una empleada de RXU Corporation.
-                        Aceptaste el puesto por el salario.
-                        Nadie te explicó exactamente qué tendrías que vigilar.
-
-                    </p>
-
-
-                    <p
-                        data-es="En las instalaciones existen entidades provenientes de múltiples realidades. Algunas son leyendas. Otras son monstruos. Algunas fueron olvidadas hace mucho tiempo."
-                        data-en="Inside the facility are entities originating from multiple realities. Some are legends. Others are monsters. Some were forgotten long ago.">
-
-                        En las instalaciones existen entidades provenientes
-                        de múltiples realidades. Algunas son leyendas.
-                        Otras son monstruos. Algunas fueron olvidadas
-                        hace mucho tiempo.
-
-                    </p>
-
-
-                    <p
-                        data-es="Todas tienen algo en común: no deberían estar aquí."
-                        data-en="They all have one thing in common: they should not be here.">
-
-                        Todas tienen algo en común:
-                        <strong>no deberían estar aquí.</strong>
-
-                    </p>
-
-
-                    <div class="quote-box">
-
-                        <span>RXU CORPORATION</span>
-
-                        <strong
-                            data-es="WE WILL MAKE TERROR GRAND AS IT ONCE WAS."
-                            data-en="WE WILL MAKE TERROR GRAND AS IT ONCE WAS.">
-
-                            WE WILL MAKE TERROR GRAND AS IT ONCE WAS.
-
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-panel">
-
-                    <div class="panel-title">
-                        RXU // FILE INFORMATION
-                    </div>
-
-
-                    <div class="info-row">
-                        <span>PROJECT</span>
-                        <strong>F:RN</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>GENRE</span>
-                        <strong>ASYMMETRIC HORROR</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>PLATFORM</span>
-                        <strong>SCRATCH</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>ENGINE</span>
-                        <strong>SCRATCH</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>STATUS</span>
-                        <strong class="red-text">IN DEVELOPMENT</strong>
-                    </div>
-
-                    <div class="info-row">
-                        <span>CONVERGENCES</span>
-                        <strong>12</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ARCHIVE
-        ========================== -->
-
-        <section id="archive" class="section dark-section">
-
-            <div class="section-heading">
-
-                <span>02 //</span>
-
-                <h2
-                    data-es="ARCHIVO CLASIFICADO"
-                    data-en="CLASSIFIED ARCHIVE">
-
-                    ARCHIVO CLASIFICADO
-
-                </h2>
+                <span>
+                    SONIC.EXE
+                </span>
 
             </div>
 
 
-            <div class="archive-layout">
+            <h3>
+                SONIC.EXE
+            </h3>
 
 
-                <div class="archive-document">
-
-                    <div class="document-header">
-
-                        <span>RXU-DOC-0001</span>
-
-                        <span>CLASSIFIED</span>
-
-                    </div>
-
-
-                    <div class="document-content">
-
-                        <h3>
-                            CONVERGENCE PHENOMENON
-                        </h3>
-
-
-                        <p
-                            data-es="Las Convergencias son manifestaciones de entidades conocidas provenientes de diferentes universos."
-                            data-en="Convergences are manifestations of known entities originating from different universes.">
-
-                            Las Convergencias son manifestaciones
-                            de entidades conocidas provenientes
-                            de diferentes universos.
-
-                        </p>
-
-
-                        <p
-                            data-es="Su existencia está relacionada con el miedo, la creencia y la conciencia colectiva. Cuanto más conocida es una entidad, mayor puede ser su influencia."
-                            data-en="Their existence is connected to fear, belief and collective awareness. The more known an entity is, the greater its potential influence.">
-
-                            Su existencia está relacionada con el miedo,
-                            la creencia y la conciencia colectiva.
-
-                        </p>
-
-
-                        <div class="classified-text">
-
-                            <span>████████████████████████</span>
-                            <span>██████████████████</span>
-                            <span>██████████████████████████</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="archive-terminal">
-
-                    <div class="terminal-top">
-                        DATABASE // CONVERGENCES
-                    </div>
-
-                    <div class="database-list">
-
-                        <div>001 // JASON</div>
-                        <div>002 // SADAKO</div>
-                        <div>003 // SLENDERMAN</div>
-                        <div>004 // SONIC.EXE</div>
-                        <div>005 // HEROBRINE</div>
-                        <div>006 // █████████</div>
-                        <div>007 // █████████</div>
-                        <div class="red-text">
-                            WARNING // DATA CORRUPTED
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ENTITIES
-        ========================== -->
-
-        <section id="entities" class="section">
-
-            <div class="section-heading">
-
-                <span>03 //</span>
-
-                <h2
-                    data-es="BASE DE DATOS DE ENTIDADES"
-                    data-en="ENTITY DATABASE">
-
-                    BASE DE DATOS DE ENTIDADES
-
-                </h2>
-
-            </div>
-
-
-            <p class="section-description"
-               data-es="Entidades actualmente registradas en el sistema de contención."
-               data-en="Entities currently registered within the containment system.">
-
-                Entidades actualmente registradas
-                en el sistema de contención.
-
+            <p
+                data-es="Entidad de interferencia."
+                data-en="Interference entity."
+            >
+                Entidad de interferencia.
             </p>
 
 
-            <div class="entity-grid">
-
-
-                <!-- SONIC -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-001</span>
-                        <span class="danger">CRITICAL</span>
-                    </div>
-
-                    <div class="entity-image sonic">
-                        SONIC.EXE
-                    </div>
-
-                    <h3>SONIC.EXE</h3>
-
-                    <p
-                        data-es="Entidad de interferencia."
-                        data-en="Interference entity.">
-
-                        Entidad de interferencia.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- SADAKO -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-002</span>
-                        <span class="danger">CRITICAL</span>
-                    </div>
-
-                    <div class="entity-image sadako">
-                        SADAKO
-                    </div>
-
-                    <h3>SADAKO YAMAMURA</h3>
-
-                    <p
-                        data-es="Entidad audiovisual."
-                        data-en="Audiovisual entity.">
-
-                        Entidad audiovisual.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- SLENDERMAN -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-003</span>
-                        <span class="danger">EXTREME</span>
-                    </div>
-
-                    <div class="entity-image slenderman">
-                        SLENDERMAN
-                    </div>
-
-                    <h3>SLENDERMAN</h3>
-
-                    <p
-                        data-es="Entidad humanoide."
-                        data-en="Humanoid entity.">
-
-                        Entidad humanoide.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- JASON -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-004</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image jason">
-                        JASON
-                    </div>
-
-                    <h3>JASON VOORHEES</h3>
-
-                    <p
-                        data-es="Entidad homicida."
-                        data-en="Homicidal entity.">
-
-                        Entidad homicida.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- JEFF -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-005</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image jeff">
-                        JEFF
-                    </div>
-
-                    <h3>JEFF THE KILLER</h3>
-
-                    <p
-                        data-es="Entidad depredadora."
-                        data-en="Predatory entity.">
-
-                        Entidad depredadora.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- HEROBRINE -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-006</span>
-                        <span class="danger">EXTREME</span>
-                    </div>
-
-                    <div class="entity-image herobrine">
-                        HEROBRINE
-                    </div>
-
-                    <h3>HEROBRINE</h3>
-
-                    <p
-                        data-es="Entidad anómala."
-                        data-en="Anomalous entity.">
-
-                        Entidad anómala.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- MICHAEL -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-007</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image michael">
-                        THE SHAPE
-                    </div>
-
-                    <h3>MICHAEL MYERS</h3>
-
-                    <p
-                        data-es="Entidad homicida."
-                        data-en="Homicidal entity.">
-
-                        Entidad homicida.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- GHOSTFACE -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-008</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image ghostface">
-                        GHOSTFACE
-                    </div>
-
-                    <h3>GHOSTFACE</h3>
-
-                    <p
-                        data-es="Entidad comunicativa."
-                        data-en="Communicative entity.">
-
-                        Entidad comunicativa.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- FREDDY -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-009</span>
-                        <span class="danger">EXTREME</span>
-                    </div>
-
-                    <div class="entity-image freddy">
-                        FREDDY
-                    </div>
-
-                    <h3>FREDDY KRUEGER</h3>
-
-                    <p
-                        data-es="Entidad onírica."
-                        data-en="Oneiric entity.">
-
-                        Entidad onírica.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- LAUGHING JACK -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-010</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image laughing">
-                        LAUGHING JACK
-                    </div>
-
-                    <h3>LAUGHING JACK</h3>
-
-                    <p
-                        data-es="Entidad de origen desconocido."
-                        data-en="Entity of unknown origin.">
-
-                        Entidad de origen desconocido.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- LEATHERFACE -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-011</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image leatherface">
-                        LEATHERFACE
-                    </div>
-
-                    <h3>LEATHERFACE</h3>
-
-                    <p
-                        data-es="Entidad homicida."
-                        data-en="Homicidal entity.">
-
-                        Entidad homicida.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
-
-
-                <!-- CHUCKY -->
-
-                <article class="entity-card">
-
-                    <div class="entity-top">
-                        <span>RXU-012</span>
-                        <span class="danger">HIGH</span>
-                    </div>
-
-                    <div class="entity-image chucky">
-                        CHUCKY
-                    </div>
-
-                    <h3>CHUCKY</h3>
-
-                    <p
-                        data-es="Entidad antropomórfica."
-                        data-en="Anthropomorphic entity.">
-
-                        Entidad antropomórfica.
-
-                    </p>
-
-                    <div class="entity-status">
-                        <span>CONTAINMENT</span>
-                        <strong>ACTIVE</strong>
-                    </div>
-
-                </article>
+            <div class="entity-status">
+
+                <span>
+                    CONTAINMENT
+                </span>
+
+                <strong>
+                    ACTIVE
+                </strong>
 
             </div>
 
-        </section>
+        </article>
 
 
-        <!-- =========================
-             DOWNLOAD
-        ========================== -->
 
-        <section id="download" class="section download-section">
+        <!-- SADAKO -->
 
-            <div class="section-heading">
+        <article class="entity-card">
 
-                <span>04 //</span>
+            <div class="entity-top">
+                <span>RXU-002</span>
+                <span class="danger">CRITICAL</span>
+            </div>
 
-                <h2
-                    data-es="DESCARGAR F:RN"
-                    data-en="DOWNLOAD F:RN">
+            <div class="entity-image">
 
-                    DESCARGAR F:RN
+                <img
+                    src="assets/entities/sadako.png"
+                    alt="Sadako Yamamura"
+                >
 
-                </h2>
+                <span>
+                    SADAKO
+                </span>
 
             </div>
 
-
-            <div class="download-box">
-
-                <div class="download-logo">
-                    F:RN
-                </div>
-
-
-                <div class="download-content">
-
-                    <h3
-                        data-es="FILE: ROTTEN NIGHTMARE"
-                        data-en="FILE: ROTTEN NIGHTMARE">
-
-                        FILE: ROTTEN NIGHTMARE
-
-                    </h3>
-
-
-                    <p
-                        data-es="Descarga la versión disponible de FILE: ROTTEN NIGHTMARE."
-                        data-en="Download the currently available version of FILE: ROTTEN NIGHTMARE.">
-
-                        Descarga la versión disponible de
-                        FILE: ROTTEN NIGHTMARE.
-
-                    </p>
-
-
-                    <div class="download-buttons">
-
-                        <!-- CAMBIA ESTOS ENLACES CUANDO TENGAS LAS DESCARGAS -->
-
-                        <a
-                            href="#"
-                            class="button button-red download-link"
-                            data-es="DESCARGAR PARA WINDOWS"
-                            data-en="DOWNLOAD FOR WINDOWS">
-
-                            DESCARGAR PARA WINDOWS
-
-                        </a>
-
-
-                        <a
-                            href="#"
-                            class="button download-link"
-                            data-es="VERSIÓN SCRATCH"
-                            data-en="SCRATCH VERSION">
-
-                            VERSIÓN SCRATCH
-
-                        </a>
-
-                    </div>
-
-
-                    <small
-                        data-es="Los enlaces de descarga estarán disponibles próximamente."
-                        data-en="Download links will be available soon.">
-
-                        Los enlaces de descarga estarán disponibles próximamente.
-
-                    </small>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             RXU
-        ========================== -->
-
-        <section class="section rxu-section">
-
-            <div class="section-heading">
-
-                <span>05 //</span>
-
-                <h2>RXU CORPORATION</h2>
-
-            </div>
-
-
-            <div class="rxu-layout">
-
-                <div>
-
-                    <div class="red-label">
-                        CORPORATE FILE
-                    </div>
-
-                    <h3
-                        data-es="CONTROLAMOS LO DESCONOCIDO."
-                        data-en="WE CONTROL THE UNKNOWN.">
-
-                        CONTROLAMOS LO DESCONOCIDO.
-
-                    </h3>
-
-
-                    <p
-                        data-es="RXU Corporation se especializa en la identificación, observación y contención de entidades anómalas."
-                        data-en="RXU Corporation specializes in the identification, observation and containment of anomalous entities.">
-
-                        RXU Corporation se especializa en la identificación,
-                        observación y contención de entidades anómalas.
-
-                    </p>
-
-                </div>
-
-
-                <div class="corporate-terminal">
-
-                    <div>RXU CORPORATION</div>
-                    <div>CONTAINMENT OPERATIONS</div>
-                    <div>CLASSIFICATION: RESTRICTED</div>
-                    <div>FACILITY STATUS: OPERATIONAL</div>
-                    <div>INCIDENTS: ███████</div>
-                    <div>FOUNDATION DATE: UNKNOWN</div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FINAL
-        ========================== -->
-
-        <section class="final-section">
-
-            <div class="final-noise">
-                SIGNAL LOST
-            </div>
-
-
-            <h2>
-                WE WILL MAKE TERROR<br>
-                <span>GRAND AS IT ONCE WAS.</span>
-            </h2>
-
-
-            <div class="final-line"></div>
-
-
-            <p>
-                RXU CORPORATION // END OF TRANSMISSION
+            <h3>
+                SADAKO YAMAMURA
+            </h3>
+
+            <p
+                data-es="Entidad audiovisual."
+                data-en="Audiovisual entity."
+            >
+                Entidad audiovisual.
             </p>
 
-        </section>
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
 
-    </main>
+        </article>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
 
-    <footer class="footer">
+        <!-- SLENDERMAN -->
 
-        <div>
-            FILE: ROTTEN NIGHTMARE
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-003</span>
+                <span class="danger">EXTREME</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/slenderman.png"
+                    alt="Slenderman"
+                >
+
+                <span>
+                    SLENDERMAN
+                </span>
+
+            </div>
+
+            <h3>
+                SLENDERMAN
+            </h3>
+
+            <p
+                data-es="Entidad humanoide."
+                data-en="Humanoid entity."
+            >
+                Entidad humanoide.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- JASON -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-004</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/jason.png"
+                    alt="Jason Voorhees"
+                >
+
+                <span>
+                    JASON
+                </span>
+
+            </div>
+
+            <h3>
+                JASON VOORHEES
+            </h3>
+
+            <p
+                data-es="Entidad homicida."
+                data-en="Homicidal entity."
+            >
+                Entidad homicida.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- JEFF -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-005</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/jeff.png"
+                    alt="Jeff the Killer"
+                >
+
+                <span>
+                    JEFF
+                </span>
+
+            </div>
+
+            <h3>
+                JEFF THE KILLER
+            </h3>
+
+            <p
+                data-es="Entidad depredadora."
+                data-en="Predatory entity."
+            >
+                Entidad depredadora.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- HEROBRINE -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-006</span>
+                <span class="danger">EXTREME</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/herobrine.png"
+                    alt="Herobrine"
+                >
+
+                <span>
+                    HEROBRINE
+                </span>
+
+            </div>
+
+            <h3>
+                HEROBRINE
+            </h3>
+
+            <p
+                data-es="Entidad anómala."
+                data-en="Anomalous entity."
+            >
+                Entidad anómala.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- MICHAEL -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-007</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/michael.png"
+                    alt="Michael Myers"
+                >
+
+                <span>
+                    THE SHAPE
+                </span>
+
+            </div>
+
+            <h3>
+                MICHAEL MYERS
+            </h3>
+
+            <p
+                data-es="Entidad homicida."
+                data-en="Homicidal entity."
+            >
+                Entidad homicida.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- GHOSTFACE -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-008</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/ghostface.png"
+                    alt="Ghostface"
+                >
+
+                <span>
+                    GHOSTFACE
+                </span>
+
+            </div>
+
+            <h3>
+                GHOSTFACE
+            </h3>
+
+            <p
+                data-es="Entidad comunicativa."
+                data-en="Communicative entity."
+            >
+                Entidad comunicativa.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- FREDDY -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-009</span>
+                <span class="danger">EXTREME</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/freddy.png"
+                    alt="Freddy Krueger"
+                >
+
+                <span>
+                    FREDDY
+                </span>
+
+            </div>
+
+            <h3>
+                FREDDY KRUEGER
+            </h3>
+
+            <p
+                data-es="Entidad onírica."
+                data-en="Oneiric entity."
+            >
+                Entidad onírica.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- LAUGHING JACK -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-010</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/laughing-jack.png"
+                    alt="Laughing Jack"
+                >
+
+                <span>
+                    LAUGHING JACK
+                </span>
+
+            </div>
+
+            <h3>
+                LAUGHING JACK
+            </h3>
+
+            <p
+                data-es="Entidad de origen desconocido."
+                data-en="Entity of unknown origin."
+            >
+                Entidad de origen desconocido.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- LEATHERFACE -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-011</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/leatherface.png"
+                    alt="Leatherface"
+                >
+
+                <span>
+                    LEATHERFACE
+                </span>
+
+            </div>
+
+            <h3>
+                LEATHERFACE
+            </h3>
+
+            <p
+                data-es="Entidad homicida."
+                data-en="Homicidal entity."
+            >
+                Entidad homicida.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+
+        <!-- CHUCKY -->
+
+        <article class="entity-card">
+
+            <div class="entity-top">
+                <span>RXU-012</span>
+                <span class="danger">HIGH</span>
+            </div>
+
+            <div class="entity-image">
+
+                <img
+                    src="assets/entities/chucky.png"
+                    alt="Chucky"
+                >
+
+                <span>
+                    CHUCKY
+                </span>
+
+            </div>
+
+            <h3>
+                CHUCKY
+            </h3>
+
+            <p
+                data-es="Entidad antropomórfica."
+                data-en="Anthropomorphic entity."
+            >
+                Entidad antropomórfica.
+            </p>
+
+            <div class="entity-status">
+                <span>CONTAINMENT</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DOWNLOAD
+========================================= -->
+
+<section
+    id="download"
+    class="section download-section"
+>
+
+
+    <div class="section-heading">
+
+        <span>
+            04 //
+        </span>
+
+        <h2
+            data-es="DESCARGAR F:RN"
+            data-en="DOWNLOAD F:RN"
+        >
+            DESCARGAR F:RN
+        </h2>
+
+    </div>
+
+
+
+    <div class="download-box">
+
+
+        <div class="download-logo">
+
+            F:RN
+
         </div>
 
-        <div>
-            RXU CORPORATION © 2026
+
+
+        <div class="download-content">
+
+
+            <h3>
+                FILE: ROTTEN NIGHTMARE
+            </h3>
+
+
+            <p
+                data-es="Selecciona la plataforma en la que quieres jugar."
+                data-en="Select the platform you want to play on."
+            >
+                Selecciona la plataforma en la que quieres jugar.
+            </p>
+
+
+
+            <div class="download-buttons">
+
+
+                <!-- WINDOWS -->
+
+                <a
+                    href="#"
+                    class="download-option"
+                    data-platform="Windows"
+                >
+
+                    <strong>
+                        WINDOWS
+                    </strong>
+
+                    <span>
+                        EXE
+                    </span>
+
+                </a>
+
+
+
+                <!-- ANDROID -->
+
+                <a
+                    href="#"
+                    class="download-option"
+                    data-platform="Android"
+                >
+
+                    <strong>
+                        ANDROID
+                    </strong>
+
+                    <span>
+                        APK
+                    </span>
+
+                </a>
+
+
+
+                <!-- SCRATCH -->
+
+                <a
+                    href="#"
+                    class="download-option"
+                    data-platform="Scratch"
+                >
+
+                    <strong>
+                        SCRATCH
+                    </strong>
+
+                    <span>
+                        ONLINE
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+
+            <small
+                data-es="Los enlaces todavía no están disponibles."
+                data-en="The links are not available yet."
+            >
+                Los enlaces todavía no están disponibles.
+            </small>
+
         </div>
 
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     RXU
+========================================= -->
+
+<section
+    class="section rxu-section"
+>
+
+
+    <div class="section-heading">
+
+        <span>
+            05 //
+        </span>
+
+        <h2>
+            RXU CORPORATION
+        </h2>
+
+    </div>
+
+
+
+    <div class="rxu-layout">
+
+
         <div>
-            ALL RECORDS CLASSIFIED
+
+            <div class="red-label">
+                CORPORATE FILE
+            </div>
+
+
+            <h3
+                data-es="CONTROLAMOS LO DESCONOCIDO."
+                data-en="WE CONTROL THE UNKNOWN."
+            >
+                CONTROLAMOS LO DESCONOCIDO.
+            </h3>
+
+
+            <p
+                data-es="RXU Corporation se especializa en la identificación, observación y contención de entidades anómalas."
+                data-en="RXU Corporation specializes in the identification, observation and containment of anomalous entities."
+            >
+                RXU Corporation se especializa en la identificación,
+                observación y contención de entidades anómalas.
+            </p>
+
         </div>
 
-    </footer>
 
 
-    <script src="script.js"></script>
+        <div class="corporate-terminal">
+
+            <div>
+                RXU CORPORATION
+            </div>
+
+            <div>
+                CONTAINMENT OPERATIONS
+            </div>
+
+            <div>
+                CLASSIFICATION: RESTRICTED
+            </div>
+
+            <div>
+                FACILITY STATUS: OPERATIONAL
+            </div>
+
+            <div>
+                INCIDENTS: ███████
+            </div>
+
+            <div>
+                FOUNDATION DATE: UNKNOWN
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL
+========================================= -->
+
+<section class="final-section">
+
+
+    <div class="final-noise">
+        SIGNAL LOST
+    </div>
+
+
+    <h2>
+
+        WE WILL MAKE TERROR
+
+        <br>
+
+        <span>
+            GRAND AS IT ONCE WAS.
+        </span>
+
+    </h2>
+
+
+    <div class="final-line"></div>
+
+
+    <p>
+        RXU CORPORATION // END OF TRANSMISSION
+    </p>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div>
+        FILE: ROTTEN NIGHTMARE
+    </div>
+
+    <div>
+        RXU CORPORATION © 2026
+    </div>
+
+    <div>
+        ALL RECORDS CLASSIFIED
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
